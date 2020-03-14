@@ -152,6 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="9371Project_DM.cpp" />
+    <ClCompile Include="NZER_N_B.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Allfunc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

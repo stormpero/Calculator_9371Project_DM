@@ -1,9 +1,9 @@
 ﻿#include <iostream>
+#include "Allfunc.h"
 
-
+using namespace std;
 int main()
-
-
 {
-    std::cout << "Hello World!\n";
+	int r = H2e();
+	cout << r << endl;
 }
