@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="9371Project_DM.cpp" />
+    <ClCompile Include="ABS_Z_N.cpp" />
     <ClCompile Include="NZER_N_B.cpp" />
   </ItemGroup>
   <ItemGroup>

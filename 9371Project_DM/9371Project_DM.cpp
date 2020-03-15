@@ -6,6 +6,6 @@ int main()
 {
 	int r;
 	cin >> r;
-	int j = NZER_N_B(r);
+	int j = ABS_Z_N(r);
 	cout << j << endl;
 }
