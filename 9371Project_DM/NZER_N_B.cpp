@@ -1,4 +1,7 @@
-int NZER_N_B(int a, int b)
+int NZER_N_B(int a)
 {
-	return 0;
+	if (a == 0)
+		return 1;
+	else
+		return 0;
 }
