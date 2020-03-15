@@ -1,4 +1,4 @@
-﻿#include "Allfunc.h"//саня гей тест
+﻿#include "Allfunc.h"
 
 int main()
 {
