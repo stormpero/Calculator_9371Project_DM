@@ -1,7 +1,5 @@
-﻿#include <iostream>
-#include "Allfunc.h"
+﻿#include "Allfunc.h"
 
-using namespace std;
 int main()
 {
 	int r;
