@@ -1,6 +1,4 @@
-
-﻿#include "Allfunc.h"
-﻿#include "Allfunc.h"
+#include "Allfunc.h"
 
 
 int main()
