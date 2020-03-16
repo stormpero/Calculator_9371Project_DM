@@ -24,6 +24,9 @@
     <ClCompile Include="ABS_Z_N.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ADD_1N_N.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h">
