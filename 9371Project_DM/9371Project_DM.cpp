@@ -1,5 +1,5 @@
 #include "Allfunc.h"
-
+// f
 
 int main()
 {
