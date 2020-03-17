@@ -3,10 +3,9 @@
 
 int main()
 {
-	vector <int> test;
-	int test;
+	int sign = 1; //ѕеременна€ дл€ хранени€ знака числа(1 - минус, 0 - плюс)
+	vector <int> test = { 1,2,3,4 };
+
 	int r;
-	cin >> r;
-	int j = ABS_Z_N(r);
-	cout << j << endl;
+	cout << r << endl;
 }

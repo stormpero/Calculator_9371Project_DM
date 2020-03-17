@@ -1,9 +1,9 @@
 #include "Allfunc.h"
 
-std::vector<int> ADD_1N_N(std::vector<int> input)
+vector<int> ADD_1N_N(vector<int> input)
 {
     // Создаем копию входного вектора
-    std::vector<int> res(input);
+    vector<int> res(input);
 
     // Проверяем если в функцию передан пустой вектор
     if (input.empty())
