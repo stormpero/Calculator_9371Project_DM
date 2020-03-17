@@ -1,2 +1,10 @@
 ﻿  9371Project_DM.cpp
+  ADD_1N_N.cpp
+  COM_NN_D.cpp
+  MUL_ZM_Z.cpp
+  NZER_N_B.cpp
+  SUB_NN_N.cpp
+  Создание кода...
+L:\9371Project_DM\9371Project_DM\COM_NN_D.cpp(8,21): warning C4018: <: несоответствие типов со знаком и без знака
+L:\9371Project_DM\9371Project_DM\COM_NN_D.cpp(32): warning C4715: COM_NN_D: значение возвращается не при всех путях выполнения
   9371Project_DM.vcxproj -> L:\9371Project_DM\9371Project_DM\Debug\9371Project_DM.exe
