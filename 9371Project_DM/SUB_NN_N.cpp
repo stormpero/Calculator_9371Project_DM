@@ -15,9 +15,12 @@ std::vector<int>  SUB_NN_N(std::vector<int> a, std::vector<int> b) // Ермольев М
 				a[i - 1]--;
 			}
 		}
-		if (result[0] == 0)        //Если в начале остался ноль, нужно убрать его
-			result.erase(result.begin());
+		while (result[0]==0) // Если после вычитания в начале вектора остаютя нули, то их  нужно убрать
+		{
 
+				result.erase(result.begin());
+
+		}
 	}
 	if (COM_NN_D(a, b) == 0)
 	{
@@ -36,8 +39,10 @@ std::vector<int>  SUB_NN_N(std::vector<int> a, std::vector<int> b) // Ермольев М
 				b[i - 1]--;
 			}
 		}
-		if (result[0] == 0)        //Если в начале остался ноль, нужно убрать его
+		while (result[0] == 0)
+		{
 			result.erase(result.begin());
+		}
 	}
 	return(result);   // Возвращаемое значение - результат вычитания двух натуральных чисел
 }
