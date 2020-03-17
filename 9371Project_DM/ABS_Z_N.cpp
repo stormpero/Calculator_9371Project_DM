@@ -1,6 +1,4 @@
-int ABS_Z_N(int a)
+int ABS_Z_N(int sign) // Просто ноль
 {	
-	if (a < 0)
-		a *= -1;
-	return a;
+	return 0;		
 }
