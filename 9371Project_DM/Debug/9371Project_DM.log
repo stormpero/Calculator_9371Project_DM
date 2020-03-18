@@ -1,1 +1,67 @@
-﻿  9371Project_DM.vcxproj -> C:\Users\prote\Documents\GitHub\9371Project_DM\9371Project_DM\Debug\9371Project_DM.exe
+﻿  9371Project_DM.cpp
+  ABS_Z_N.cpp
+  ADD_1N_N.cpp
+  ADD_NN_N.cpp
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C3867: "std::vector<int,std::allocator<_Ty>>::size": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C3867:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C3867:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C3867:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C3867:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C2446: <: нет преобразования "unsigned int (__thiscall std::vector<int,std::allocator<_Ty>>::* )(void) noexcept const" в "int"
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C2446:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C2446:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C2446:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,31): error C2446:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(9,27): message : Не существует контекста, в котором такое преобразование возможно
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C3867: "std::vector<int,std::allocator<_Ty>>::size": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C3867:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C3867:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C3867:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C3867:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C2296: -: недопустимо, левый операнд имеет тип "unsigned int (__thiscall std::vector<int,std::allocator<_Ty>>::* )(void) noexcept const"
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C2296:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C2296:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C2296:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(17,6): error C2296:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C3867: "std::vector<int,std::allocator<_Ty>>::size": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C3867:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C3867:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C3867:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C3867:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2171: --: недопустимо для операндов типа "unsigned int (__thiscall std::vector<int,std::allocator<_Ty>>::* )(void) noexcept const"
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2171:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2171:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2171:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2171:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(18,10): error C2105: для "--" требуется левостороннее значение
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(23,23): warning C4018: <: несоответствие типов со знаком и без знака
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C3867: "std::vector<int,std::allocator<_Ty>>::size": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C3867:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C3867:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C3867:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C3867:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C2296: -: недопустимо, левый операнд имеет тип "unsigned int (__thiscall std::vector<int,std::allocator<_Ty>>::* )(void) noexcept const"
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C2296:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C2296:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C2296:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(30,6): error C2296:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C3867: "std::vector<int,std::allocator<_Ty>>::size": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C3867:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C3867:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C3867:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C3867:         ]
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2171: --: недопустимо для операндов типа "unsigned int (__thiscall std::vector<int,std::allocator<_Ty>>::* )(void) noexcept const"
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2171:         with
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2171:         [
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2171:             _Ty=int
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2171:         ]
+  COM_NN_D.cpp
+L:\9371Project_DM\9371Project_DM\ADD_NN_N.cpp(31,10): error C2105: для "--" требуется левостороннее значение
+  MUL_ND_N.cpp
+  MUL_Nk_N.cpp
+  MUL_ZM_Z.cpp
+  NZER_N_B.cpp
+  SUB_NN_N.cpp
+  Создание кода...
+L:\9371Project_DM\9371Project_DM\COM_NN_D.cpp(8,21): warning C4018: <: несоответствие типов со знаком и без знака
+L:\9371Project_DM\9371Project_DM\COM_NN_D.cpp(32): warning C4715: COM_NN_D: значение возвращается не при всех путях выполнения
