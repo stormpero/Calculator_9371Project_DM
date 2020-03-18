@@ -3,11 +3,16 @@
 
 int main()
 {
-	int sign = 1; //Переменная для хранения знака числа(1 - минус, 0 - плюс)
-	vector <int> test = { 0,1,2,3,4 };
+	// Ввод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
+	string s; cin >> s; 
+	vector <int> test(s.length());
+	for (int i = 1; i < test.size(); i++)
+		test[i] = s[i] - '0';
+	if (s[0] == '-') test[0] = 1;
+	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
 
-	test = MUL_ZM_Z(test);
-	for (int i = 0; i < 5; i++)
+
+	for (int i = 0; i < test.size(); i++)
 		cout << test[i];
-	
+	//
 }
