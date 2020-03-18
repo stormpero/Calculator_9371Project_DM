@@ -1,11 +1,9 @@
 #include "Allfunc.h"
 
-int NZER_N_B(vector<int> a)
+int NZER_N_B(vector<int> a) //Проверка на ноль : если число не равно нулю, то «да» иначе «нет»
 {
-	if ((a.size() == 2) && (a[a.size()] == 0)) // Смотрим размер, и элемент
-		return false;
-	else if ((a.size() == 1) && (a[a.size()] == 0))
-		return false;	
+	if ((a.size() == 1) && (a[0] == 0))
+		return 0;
 	else
-		return true;
-}
+		return 1;
+}	
