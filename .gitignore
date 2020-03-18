@@ -1,7 +1,7 @@
 .vs/
 Debug/
-.suo
-.ipchu
-.db
+*.suo
+*.ipchu
+*.db
 v15/
 v16/
