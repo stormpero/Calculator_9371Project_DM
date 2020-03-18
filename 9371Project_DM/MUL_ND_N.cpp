@@ -1,15 +1,16 @@
 #include "Allfunc.h"
 
-vector<int> MUL_ND_N(vector<int> entry) {
+vector<int> MUL_ND_N(vector<int> entry, int number) {
 
 	if (entry.empty()) {
 		throw "Error:Empty entry";
 	}
 
 
-	short number;                         // ввод цифры 
+	/*short number; // ввод цифры 
 	cout << "Please enter a number";
-	cin >> number;
+	cin >> number;*/
+
 	if (number < 0 || number > 9)       //¬води нормальную цифру мамкин хацкер!!!!!
 		throw "Entered wrong";
 
