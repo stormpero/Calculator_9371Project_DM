@@ -15,4 +15,10 @@ int main()
 	for (int i = 0; i < test.size(); i++)
 		cout << test[i];
 	//
+
+	//Вывод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
+	if (test[0] == 1) cout << "-";
+	for (int i = 1; i < test.size(); i++)
+		cout << test[i];
+	//
 }
