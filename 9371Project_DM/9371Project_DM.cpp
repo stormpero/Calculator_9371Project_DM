@@ -10,11 +10,14 @@ int main()
 		test[i] = s[i] - '0';
 	if (s[0] == '-') test[0] = 1;
 	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
+	//
 
 
+	
 	for (int i = 0; i < test.size(); i++)
 		cout << test[i];
-	//
+
+
 
 	//Âûâîä ÷èñëà // Ïğèâåòñòâóåòñÿ äîğîáîòêà êîäà(ÎÏÒÈÌÈÇÀÖÈß)
 	if (test[0] == 1) cout << "-";
