@@ -164,6 +164,7 @@
     <ClCompile Include="NZER_N_B.cpp" />
     <ClCompile Include="SUB_NDN_N.cpp" />
     <ClCompile Include="SUB_NN_N.cpp" />
+    <ClCompile Include="TRANS_N_Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
