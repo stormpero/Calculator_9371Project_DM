@@ -5,8 +5,10 @@ vector <int>SUB_NDN_N(vector<int> a, vector<int> b, int k)
 	vector<int> tempb = MUL_ND_N(b, k);// save result of b * k (ƒл€ того, чтобы не считать его 2 раза)
 	vector<int> null = { 0 };
 
-	if (COM_NN_D(tempb, a) == 2) // если b * k > a то результат = b*k - a, если b * k = a(это возможно только в том случае когда a = b = 0), то результат = b*k - a = a*k - b = 0
+	if (COM_NN_D(tempb, a) == 2) // ≈сли bk > a, то result = bk - a
 		return SUB_NN_N(tempb, a);
-	else if ((k == 0) && (b == null) || ((k == 0) && (a == null)) || ((a == null) && (b == null))) return null; // иначе результат = b*k - a,      ( если b * k = a(это возможно только в том случае когда a = b = 0), то результат = b*k - a = a*k - b = 0 )
-	else throw "wrong number"; // if k == 0 and b != 0 and a != 0, then ak - b < 0 and bk - a < 0
+	else if (k != 0) //иначе если k != 0, то result = ak - b  («десь же учтем случай, когда ak=b и bk=a, при k != 0 такое возможно, когда a = b = 0, или a = b = k = 1   =>  result = ak - b)
+		return SUB_NN_N(MUL_ND_N(a, k), b);
+	else if ((k == 0) && (b == null) || ((k == 0) && (a == null))) return null; // если k = 0, то       ak - b <= 0    и   bk - a <= 0      при этом равным нулю одно из этих выражений может только если a = 0 или b = 0
+	else throw "wrong number";  // иначе неотрицательного результата нет
 }
