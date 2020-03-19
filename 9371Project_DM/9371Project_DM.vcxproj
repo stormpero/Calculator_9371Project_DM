@@ -159,6 +159,7 @@
     <ClCompile Include="DIV_NN_Dk.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Nk_N.cpp" />
+    <ClCompile Include="MUL_NN_N.cpp" />
     <ClCompile Include="MUL_ZM_Z.cpp" />
     <ClCompile Include="NZER_N_B.cpp" />
     <ClCompile Include="SUB_NDN_N.cpp" />
