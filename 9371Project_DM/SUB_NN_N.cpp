@@ -1,7 +1,6 @@
 #include "Allfunc.h"
 vector<int>  SUB_NN_N(vector<int> a, vector<int> b) // Ермольев Максим Викторович
-{
-	vector<int> result;               // Перменнная, которая хранит результат вычитания
+{	            
 	if (COM_NN_D(a, b) == 2)      // 2 если a>b, 0 если a=b, 1 если a<b
 	{
 		vector <int> result(a.size());                         //Созданим вектор, который хранит резльтат вычитания, и назначим ему размерность большего числа
@@ -17,14 +16,14 @@ vector<int>  SUB_NN_N(vector<int> a, vector<int> b) // Ермольев Максим Викторови
 		}
 		while (result[0]==0) // Если после вычитания в начале вектора остаютя нули, то их  нужно убрать
 		{
-
-				result.erase(result.begin());
-
+			result.erase(result.begin());
 		}
+		return result;
 	}
 	if (COM_NN_D(a, b) == 0)
 	{
-		result[0] = 0;           // Так как натуральные числа равны, то их разность дает 0
+		vector <int> result = { 0 }; // Так как натуральные числа равны, то их разность дает 0
+		return result;          
 	}
 	if (COM_NN_D(a, b) == 1)
 	{
@@ -43,6 +42,6 @@ vector<int>  SUB_NN_N(vector<int> a, vector<int> b) // Ермольев Максим Викторови
 		{
 			result.erase(result.begin());
 		}
-	}
-	return(result);   // Возвращаемое значение - результат вычитания двух натуральных чисел
+		return result;   // Возвращаемое значение - результат вычитания двух натуральных чисел
+	}	
 }
