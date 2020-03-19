@@ -51,6 +51,9 @@
     <ClCompile Include="ADD_NN_N.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="MUL_NN_N.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h">
