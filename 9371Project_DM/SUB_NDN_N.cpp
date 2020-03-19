@@ -2,13 +2,14 @@
 
 vector <int>SUB_NDN_N(vector<int> a, vector<int> b, int k)
 {
-	vector<int> tempb = MUL_ND_N(b, k);// save result of b * k (Для того, чтобы не считать его 2 раза)
-	vector<int> null = { 0 };
+	vector<int> bk = MUL_ND_N(b, k);// save result of b * k (Для того, чтобы не считать его 2 раза)
+	vector<int> ak = MUL_ND_N(a, k);
+	short abk = COM_NN_D(a, bk);
+	short bak = COM_NN_D(b, ak);
 
-	if (COM_NN_D(tempb, a) == 2) // Если bk > a, то result = bk - a
-		return SUB_NN_N(tempb, a);
-	else if (k != 0) //иначе если k != 0, то result = ak - b  (Здесь же учтем случай, когда ak=b и bk=a, при k != 0 такое возможно, когда a = b = 0, или a = b = k = 1   =>  result = ak - b)
-		return SUB_NN_N(MUL_ND_N(a, k), b);
-	else if ((k == 0) && (b == null) || ((k == 0) && (a == null))) return null; // если k = 0, то       ak - b <= 0    и   bk - a <= 0      при этом равным нулю одно из этих выражений может только если a = 0 или b = 0
-	else throw "wrong number";  // иначе неотрицательного результата нет
+	if (abk == 2 || abk == 0) // Если a > bk или a = bk, result = a - bk
+		return SUB_NN_N(a, bk);
+	else if (bak == 2 || bak == 0)// Если b > ak или b = ak, result = b - ak
+		return SUB_NN_N(b, ak);
+	else throw "Wrong input"; // Инача
 }
