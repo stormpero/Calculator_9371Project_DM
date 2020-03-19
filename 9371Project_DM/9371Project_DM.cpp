@@ -23,8 +23,7 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 }
 int main()
 {
-	x *p = new x;
-	p->denominator[i]
+	Drob*p = new Drob;	
 	output(input());	
 }
 
