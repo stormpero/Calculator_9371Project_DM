@@ -1,5 +1,9 @@
 #include "Allfunc.h"
-
+struct Drob
+{
+	vector <int> numerator = { 0 };
+	vector <int> denominator = { 0 };
+};
 vector<int> input() // Ввод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
 {
 	string s; cin >> s;	
@@ -19,6 +23,8 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 }
 int main()
 {
+	x *p = new x;
+	p->denominator[i]
 	output(input());	
 }
 
