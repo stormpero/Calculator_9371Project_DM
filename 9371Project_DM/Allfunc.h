@@ -38,3 +38,5 @@ vector<int> ABS_Z_N(vector<int> a);  // Абсолютная величина ч
 vector<int> MUL_ND_N(vector<int> entry, int number); //Умножение целого на цифру //Игорян
 
 vector<int> MUL_ZM_Z(vector<int> input); //Умножение целого числа на -1 //Табояков Иван
+
+vector<int> TRANS_Z_N(vector<int> a);//Преобразование целого неотрицательного в натуральное//Жиренкин Артем
