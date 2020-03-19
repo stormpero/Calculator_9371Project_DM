@@ -23,13 +23,15 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 }
 int main()
 {
-	Drob*p = new Drob;	
-	output(input());	
+	
+
+	//vector<int> t1 = { 1,3,5 };
+	//vector<int> t2 = { 1,3,5,7 };
+	//vector<int> t3(SUB_NN_N(t1, t2));
+	//
+	//for (int i = 0; i < t3.size(); i++)
+	//	cout << t3[i];
+	
+	// output(input());	
 }
 
-//vector<int> t1 = { 1,3,5,7 };
-//vector<int> t2 = { 1,3,5 };
-//vector<int> t3(SUB_NN_N(t1, t2));
-//
-//for (int i = 0; i < t3.size(); i++)
-//	cout << t3[i];
