@@ -52,6 +52,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="TRANS_N_Z.cpp">
+    <ClCompile Include="MUL_NN_N.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
