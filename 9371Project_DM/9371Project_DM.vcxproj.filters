@@ -1,64 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="9371Project_DM.cpp" />
+    <ClCompile Include="ABS_Z_N.cpp" />
+    <ClCompile Include="ADD_1N_N.cpp" />
+    <ClCompile Include="ADD_NN_N.cpp" />
+    <ClCompile Include="COM_NN_D.cpp" />
+    <ClCompile Include="DIV_NN_Dk.cpp" />
+    <ClCompile Include="MUL_ND_N.cpp" />
+    <ClCompile Include="MUL_Nk_N.cpp" />
+    <ClCompile Include="MUL_NN_N.cpp" />
+    <ClCompile Include="MUL_ZM_Z.cpp" />
+    <ClCompile Include="NZER_N_B.cpp" />
+    <ClCompile Include="SUB_NDN_N.cpp" />
+    <ClCompile Include="SUB_NN_N.cpp" />
+    <ClCompile Include="TRANS_N_Z.cpp" />
+    <ClCompile Include="MOD_NN_N.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="9371Project_DM.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="NZER_N_B.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ABS_Z_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ADD_1N_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SUB_NN_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="COM_NN_D.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MUL_ZM_Z.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MUL_ND_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MUL_Nk_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SUB_NDN_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="DIV_NN_Dk.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ADD_NN_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TRANS_N_Z.cpp">
-    <ClCompile Include="MUL_NN_N.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Allfunc.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
+    <ClInclude Include="Allfunc.h" />
   </ItemGroup>
 </Project>
