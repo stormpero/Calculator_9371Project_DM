@@ -157,6 +157,7 @@
     <ClCompile Include="ADD_NN_N.cpp" />
     <ClCompile Include="COM_NN_D.cpp" />
     <ClCompile Include="DIV_NN_Dk.cpp" />
+    <ClCompile Include="MOD_NN_N.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Nk_N.cpp" />
     <ClCompile Include="MUL_NN_N.cpp" />
