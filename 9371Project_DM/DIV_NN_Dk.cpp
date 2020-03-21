@@ -25,7 +25,7 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) {
 
 		vector<int> number = { 0 };               //это цела€ часть числа при делении 2го на 1е
 
-		while (COM_NN_D(vector_1, vector_2) == 2) { //ƒалее идет подсчет целого и дополненна€ функци€ ћакса, так как иначе нихрена не получалось // до $$$$$
+		while (COM_NN_D(vector_1, vector_2) == 2 ) { //ƒалее идет подсчет целого и дополненна€ функци€ ћакса, так как иначе нихрена не получалось // до $$$$$
 			vector <int> a = vector_1, b = vector_2;
 			vector <int> result(a.size());                         //—озданим вектор, который хранит резльтат вычитани€, и назначим ему размерность большего числа
 			while (a.size() != b.size())  b.insert(b.begin(), 0); // ≈сли вектор b меньше по размерности, то добавим в его начало нули
@@ -55,6 +55,9 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) {
 			number = ADD_1N_N(number); // увеличиваем целое
 			vector_1 = result;
 		}
+
+		if (COM_NN_D(vector_1, vector_2) == 0) // если дел€тс€ нацело, то увеличиваем вектор еще на 1цу
+			number = ADD_1N_N(number);
 
 
 
