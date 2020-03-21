@@ -170,6 +170,7 @@
     <ClCompile Include="SUB_NN_N.cpp" />
     <ClCompile Include="TRANS_N_Z.cpp" />
     <ClCompile Include="TRANS_Z_N.cpp" />
+    <ClCompile Include="TRANS_Z_Q.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
