@@ -157,6 +157,8 @@
     <ClCompile Include="ADD_NN_N.cpp" />
     <ClCompile Include="COM_NN_D.cpp" />
     <ClCompile Include="DIV_NN_Dk.cpp" />
+    <ClCompile Include="DIV_NN_N.cpp" />
+    <ClCompile Include="GCF_NN_N.cpp" />
     <ClCompile Include="MOD_NN_N.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Nk_N.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="SUB_NDN_N.cpp" />
     <ClCompile Include="SUB_NN_N.cpp" />
     <ClCompile Include="TRANS_N_Z.cpp" />
+    <ClCompile Include="TRANS_Z_N.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />

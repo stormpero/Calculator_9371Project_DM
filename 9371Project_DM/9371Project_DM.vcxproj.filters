@@ -16,6 +16,9 @@
     <ClCompile Include="SUB_NN_N.cpp" />
     <ClCompile Include="TRANS_N_Z.cpp" />
     <ClCompile Include="MOD_NN_N.cpp" />
+    <ClCompile Include="DIV_NN_N.cpp" />
+    <ClCompile Include="GCF_NN_N.cpp" />
+    <ClCompile Include="TRANS_Z_N.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
