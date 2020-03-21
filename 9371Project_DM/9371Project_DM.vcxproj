@@ -165,6 +165,7 @@
     <ClCompile Include="MUL_NN_N.cpp" />
     <ClCompile Include="MUL_ZM_Z.cpp" />
     <ClCompile Include="NZER_N_B.cpp" />
+    <ClCompile Include="POZ_Z_D.cpp" />
     <ClCompile Include="SUB_NDN_N.cpp" />
     <ClCompile Include="SUB_NN_N.cpp" />
     <ClCompile Include="TRANS_N_Z.cpp" />
