@@ -17,24 +17,24 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 	for (int i = 1; i < test.size(); i++)
 		cout << test[i];
 }
-struct Drob
-{
-	vector <int> numerator = { 0 };
-	vector <int> denominator = { 0 };
-};
+
 int main()
 {
-	vector <Drob> test;
-	test[0].numerator[0] = 1;
 	
 
-	vector<int> t1 = { 1,3,5 };
-	vector<int> t2 = { 1,3,5,7 };
-	vector<int> t3(SUB_NN_N(t1, t2));
-	
-	for (int i = 0; i < t3.size(); i++)
-		cout << t3[i];
-	
-	 output(input());	
+
+
+	//vector <Drob> test;
+	//test[0].numerator[0] = 1;
+	//
+
+	//
+	//vector<int> t2 = { 1,3,5,7 };
+	//vector<int> t3;
+	//vector<int> t1 = { 0,3,5 };
+	//for (int i = 0; i < t3.size(); i++)
+	//	cout << t3[i];
+	//
+	// output(input());	
 }
 
