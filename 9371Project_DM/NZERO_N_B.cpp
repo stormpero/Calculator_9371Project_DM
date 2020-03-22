@@ -5,5 +5,5 @@ int NZER_N_B(vector<int> a_Z) //ѕроверка на ноль : если число не равно нулю, то 
 	if ((a_Z.size() == 1) && (a_Z[0] == 0))
 		return 0;
 	else
-		return 1;	
-}	
+		return 1;
+}
