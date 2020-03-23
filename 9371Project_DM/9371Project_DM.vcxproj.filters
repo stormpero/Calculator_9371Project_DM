@@ -22,6 +22,8 @@
     <ClCompile Include="TRANS_Z_Q.cpp" />
     <ClCompile Include="INT_Q_B.cpp" />
     <ClCompile Include="NZERO_N_B.cpp" />
+    <ClCompile Include="MUL_Pxk_P.cpp" />
+    <ClCompile Include="TRANS_Q_Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
