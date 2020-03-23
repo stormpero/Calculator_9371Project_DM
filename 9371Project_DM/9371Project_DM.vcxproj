@@ -161,7 +161,6 @@
     <ClCompile Include="MUL_ZM_Z.cpp" />
     <ClCompile Include="natural.cpp" />
     <ClCompile Include="POZ_Z_D.cpp" />
-    <ClCompile Include="SUB_NDN_N.cpp" />
     <ClCompile Include="TRANS_Q_Z.cpp" />
     <ClCompile Include="TRANS_Z_N.cpp" />
     <ClCompile Include="TRANS_Z_Q.cpp" />
