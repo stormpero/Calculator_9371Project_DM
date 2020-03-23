@@ -160,6 +160,7 @@
     <ClCompile Include="DIV_NN_N.cpp" />
     <ClCompile Include="GCF_NN_N.cpp" />
     <ClCompile Include="INT_Q_B.cpp" />
+    <ClCompile Include="LED_P_Q.cpp" />
     <ClCompile Include="MOD_NN_N.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Nk_N.cpp" />
