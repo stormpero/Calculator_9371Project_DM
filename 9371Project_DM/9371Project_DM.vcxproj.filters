@@ -14,6 +14,8 @@
     <ClCompile Include="natural.cpp" />
     <ClCompile Include="TRANS_Q_Z.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
+    <ClCompile Include="NZERO_N_B.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
