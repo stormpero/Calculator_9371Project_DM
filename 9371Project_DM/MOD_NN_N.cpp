@@ -1,14 +1,7 @@
 #include "Allfunc.h"
 
-vector <int>MOD_NN_N(vector<int> first, vector<int> second)
-{
-	// Проверяем если в функцию передан пустой вектор
-	if (first.empty() || second.empty())
-		throw "Empty input";
-	if (COM_NN_D(first, second) == 1)
-		swap(first, second);
-	return SUB_NN_N(first, MUL_NN_N(second, DIV_NN_N(first, second)));
-}
+//Потом удалю
+
 //vector <int> remains = { 0 };
 //vector <int> num;
 //vector <int> null = { 0 };

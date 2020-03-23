@@ -156,15 +156,11 @@
     <ClCompile Include="INT_Q_B.cpp" />
     <ClCompile Include="MOD_NN_N.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
-    <ClCompile Include="MUL_Nk_N.cpp" />
-    <ClCompile Include="MUL_NN_N.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
     <ClCompile Include="MUL_ZM_Z.cpp" />
     <ClCompile Include="natural.cpp" />
     <ClCompile Include="POZ_Z_D.cpp" />
     <ClCompile Include="SUB_NDN_N.cpp" />
-    <ClCompile Include="SUB_NN_N.cpp" />
-    <ClCompile Include="TRANS_N_Z.cpp" />
     <ClCompile Include="TRANS_Q_Z.cpp" />
     <ClCompile Include="TRANS_Z_N.cpp" />
     <ClCompile Include="TRANS_Z_Q.cpp" />
