@@ -19,14 +19,16 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 }
 int main()
 {
-	vector<int> t2 = { 1,3,5,7 }; // Наше число, которое должно попасть в числитель
-	Drob x = TRANS_Z_Q(t2);// Копираю вектор из функции в новый вектор
-	for (int i = 0; i < x.numerator.size(); i++)// Вывод числителя
-		cout << x.numerator[i];
-	cout << endl;
-	for (int i = 0; i < x.denominator.size(); i++)// Вывод знаменателя
-		cout << x.denominator[i];
-
+	//vector<int> t2 = { 1,3,5,7 }; // Наше число, которое должно попасть в числитель
+	//Drob x = TRANS_Z_Q(t2);// Копираю вектор из функции в новый вектор
+	//for (int i = 0; i < x.numerator.size(); i++)// Вывод числителя
+	//	cout << x.numerator[i];
+	//cout << endl;
+	//for (int i = 0; i < x.denominator.size(); i++)// Вывод знаменателя
+	//	cout << x.denominator[i];
+	vector<int> t2 = { 1,3,5,7 };
+	vector<int> t1 = { 1,3,5,7 };
+	t1 = SUB_NN_N(t2, t1);
 
 	//vector <Drob> test;
 	//test[0].numerator[0] = 1;
