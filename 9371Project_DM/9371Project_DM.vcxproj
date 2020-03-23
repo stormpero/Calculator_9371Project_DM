@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="9371Project_DM.cpp" />
     <ClCompile Include="ABS_Z_N.cpp" />
+    <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="INT_Q_B.cpp" />
     <ClCompile Include="MOD_NN_N.cpp" />
     <ClCompile Include="MUL_ND_N.cpp" />
