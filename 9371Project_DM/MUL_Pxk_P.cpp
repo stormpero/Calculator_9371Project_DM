@@ -7,6 +7,8 @@ vector<Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k)
 
 	for (vector<int> i{ 0 }; COM_NN_D(i, k) == 1; i = ADD_1N_N(i))
 	{
+		// Сдвигаем коэффициенты налево k раз,
+		// а свободное пространство заполняем нулями
 		Drob zero{ vector<int> {0}, vector<int> {1} };
 		result.push_back(zero);
 	}
