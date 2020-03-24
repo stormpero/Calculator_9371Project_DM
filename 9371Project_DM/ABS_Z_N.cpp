@@ -2,6 +2,6 @@
 
 vector<int> ABS_Z_N(vector<int> a)
 {
-	a[0] = 0;
+	a.erase(a.begin());
 	return a;
 }

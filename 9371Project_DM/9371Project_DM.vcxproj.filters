@@ -15,6 +15,7 @@
     <ClCompile Include="MUL_Pxk_P.cpp" />
     <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="LED_P_Q.cpp" />
+    <ClCompile Include="MUL_ZZ_Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />

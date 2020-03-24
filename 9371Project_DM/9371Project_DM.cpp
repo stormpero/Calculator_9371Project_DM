@@ -20,15 +20,15 @@ void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(О
 int main()
 {
 	//vector<int> t2 = { 5,0 }; // Наше число, которое должно попасть в числитель
-	//vector<int> t3 = { 2,5 };
+	vector<int> t3 = { 2,5 };
 	//t3 = GCF_NN_N(t2, t3);
-	//
-	//for (int i = 0; i < t3.size(); i++)
-	//	cout << t3[i];	   	
-	vector <int> sd(input());
 
-	
-
+	//vector <int> sd(input());
+	vector<int> result;
+	result.push_back(0);
+	/*vector <int> sd(ABS_Z_N(t3));
+	for (int i = 0; i < sd.size(); i++)
+		cout << sd[i];	 */  	
 	//Drob x = TRANS_Z_Q(t2);// Копираю вектор из функции в новый вектор
 	//for (int i = 0; i < x.numerator.size(); i++)// Вывод числителя
 	//	cout << x.numerator[i];
