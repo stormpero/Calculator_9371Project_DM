@@ -126,3 +126,5 @@ vector<Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k); // Домножени�
 int DEG_P_N(vector <Drob> a); // Степень многочлена //Старосельский Александр
 
 Drob LED_P_Q(vector <Drob> polynominal); // Старшимй коэффициент многочлена //Даниил
+
+vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b, int row);// Сложение матриц//Жиренкин Артем
