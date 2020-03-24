@@ -160,6 +160,7 @@
     <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
     <ClCompile Include="MUL_ZM_Z.cpp" />
+    <ClCompile Include="MUL_ZZ_Z.cpp" />
     <ClCompile Include="natural.cpp" />
     <ClCompile Include="POZ_Z_D.cpp" />
     <ClCompile Include="TRANS_Q_Z.cpp" />
