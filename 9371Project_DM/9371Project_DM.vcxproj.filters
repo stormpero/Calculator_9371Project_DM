@@ -16,6 +16,7 @@
     <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="LED_P_Q.cpp" />
     <ClCompile Include="MUL_ZZ_Z.cpp" />
+    <ClCompile Include="DIV_QQ_Q.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
