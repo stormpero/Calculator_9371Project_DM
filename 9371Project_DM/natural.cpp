@@ -306,6 +306,79 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) // Вычисление 
 	}
 }
 
+vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //Вычитание целых чисел
+
+	vector<int> result;
+	if (POZ_Z_D(vector_2) == 0) //проверка что одно из чисел 0, сразу возвращаем обратно один из векторов
+		return (vector_1);
+	if (POZ_Z_D(vector_1) == 0)
+		return (vector_2);
+
+
+	if (POZ_Z_D(vector_2) == 1 && POZ_Z_D(vector_1) == 2) {//1 +, 2 -, складываем как натуральные добавляем 1 в начало	
+		vector_1.erase(vector_1.begin());
+		vector_2.erase(vector_2.begin());
+		result = ADD_NN_N(vector_1, vector_2);
+		result.insert(result.begin(), 0);
+		return (result);
+	}
+
+
+	if (POZ_Z_D(vector_2) == 1 && POZ_Z_D(vector_1) == 1) {//1 -, 2-// тут 3 случая
+		vector_1.erase(vector_1.begin());
+		vector_2.erase(vector_2.begin());
+		if (COM_NN_D(vector_1, vector_2) == 0)//Проверка на равенство, если так сразу возвращаем 0		
+			return { 0, 0 };
+
+		if (COM_NN_D(vector_1, vector_2) == 2) { // 1й больше 2го вычитаем возвращаем со знаком -
+			result = SUB_NN_N(vector_1, vector_2);
+			result.insert(result.begin(), 1);
+			return (result);
+		}
+
+		if (COM_NN_D(vector_1, vector_2) == 1) { //2й больше 1го вычитаем возвращаем с +
+			result = SUB_NN_N(vector_2, vector_1);
+			result.insert(result.begin(), 0);
+			return (result);
+		}
+	}
+
+
+	if (POZ_Z_D(vector_2) == 2 && POZ_Z_D(vector_1) == 2) {//1+, 2+ аналогично предыдущему, только вместо вычтем сложим 
+		vector_1.erase(vector_1.begin());
+		vector_2.erase(vector_2.begin());
+		if (COM_NN_D(vector_1, vector_2) == 0)
+			return { 0, 0 };
+
+		if (COM_NN_D(vector_1, vector_2) == 2) {
+			result = SUB_NN_N(vector_1, vector_2);
+			result.insert(result.begin(), 0);
+			return (result);
+		}
+
+		if (COM_NN_D(vector_1, vector_2) == 1) {
+			result = SUB_NN_N(vector_2, vector_1);
+			result.insert(result.begin(), 1);
+			return (result);
+		}
+	}
+
+
+
+
+
+	if (POZ_Z_D(vector_1) == 1 && POZ_Z_D(vector_2) == 2) {// если 1 -, 2 + складываем как натуральные добавляем 1 в начало
+		system("pause");
+		vector_1.erase(vector_1.begin());
+		vector_2.erase(vector_2.begin());
+		result = ADD_NN_N(vector_1, vector_2);
+		result.insert(result.begin(), 1);
+		return (result);
+	}
+
+
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
