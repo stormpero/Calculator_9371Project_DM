@@ -306,14 +306,13 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) // ¬ычисление 
 	}
 }
 
-vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //¬ычитание целых чисел
-
+vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) //¬ычитание целых чисел
+{ 
 	vector<int> result;
 	if (POZ_Z_D(vector_2) == 0) //проверка что одно из чисел 0, сразу возвращаем обратно один из векторов
 		return (vector_1);
 	if (POZ_Z_D(vector_1) == 0)
 		return (vector_2);
-
 
 	if (POZ_Z_D(vector_2) == 1 && POZ_Z_D(vector_1) == 2) {//1 +, 2 -, складываем как натуральные добавл€ем 1 в начало	
 		vector_1.erase(vector_1.begin());
@@ -322,7 +321,6 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //¬ычитание ц
 		result.insert(result.begin(), 0);
 		return (result);
 	}
-
 
 	if (POZ_Z_D(vector_2) == 1 && POZ_Z_D(vector_1) == 1) {//1 -, 2-// тут 3 случа€
 		vector_1.erase(vector_1.begin());
@@ -343,7 +341,6 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //¬ычитание ц
 		}
 	}
 
-
 	if (POZ_Z_D(vector_2) == 2 && POZ_Z_D(vector_1) == 2) {//1+, 2+ аналогично предыдущему, только вместо вычтем сложим 
 		vector_1.erase(vector_1.begin());
 		vector_2.erase(vector_2.begin());
@@ -363,10 +360,6 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //¬ычитание ц
 		}
 	}
 
-
-
-
-
 	if (POZ_Z_D(vector_1) == 1 && POZ_Z_D(vector_2) == 2) {// если 1 -, 2 + складываем как натуральные добавл€ем 1 в начало
 		system("pause");
 		vector_1.erase(vector_1.begin());
@@ -375,8 +368,6 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) { //¬ычитание ц
 		result.insert(result.begin(), 1);
 		return (result);
 	}
-
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
