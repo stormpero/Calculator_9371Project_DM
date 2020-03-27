@@ -29,6 +29,8 @@ vector<int> MUL_NN_N(vector<int> first, vector<int> second); // Перемнож
 
 vector<int> DIV_NN_N(vector<int> first, vector<int> second); // Кратное от деления 2 натуральных чисел
 
+void PAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num); // НОК знаменателей и НОД числителей многочлена (ЧЕРЕЗ ССЫЛКИ)
+
 //////////////////////////////////////////////////////////////////////////////
 
 
