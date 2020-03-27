@@ -20,6 +20,7 @@
     <ClCompile Include="MAT_Q_SUM.cpp" />
     <ClCompile Include="ADD_ZZ_Z.cpp" />
     <ClCompile Include="MOD_ZZ_Z.cpp" />
+    <ClCompile Include="LCM_NN_N.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
