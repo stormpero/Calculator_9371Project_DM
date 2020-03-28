@@ -152,28 +152,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="9371Project_DM.cpp" />
-    <ClCompile Include="ABS_Z_N.cpp" />
-    <ClCompile Include="ADD_ZZ_Z.cpp" />
     <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="DIV_QQ_Q.cpp" />
+    <ClCompile Include="integer.cpp" />
     <ClCompile Include="INT_Q_B.cpp" />
-    <ClCompile Include="LCM_NN_N.cpp" />
     <ClCompile Include="LED_P_Q.cpp" />
     <ClCompile Include="MAT_Q_SUM.cpp" />
-    <ClCompile Include="MOD_NN_N.cpp" />
-    <ClCompile Include="MOD_ZZ_Z.cpp" />
-    <ClCompile Include="MUL_ND_N.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
-    <ClCompile Include="MUL_ZM_Z.cpp" />
-    <ClCompile Include="MUL_ZZ_Z.cpp" />
     <ClCompile Include="natural.cpp" />
-    <ClCompile Include="POZ_Z_D.cpp" />
+    <ClCompile Include="polynomial.cpp" />
+    <ClCompile Include="rational.cpp" />
     <ClCompile Include="TRANS_Q_Z.cpp" />
-    <ClCompile Include="TRANS_Z_N.cpp" />
     <ClCompile Include="TRANS_Z_Q.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
+    <ClInclude Include="integer.h" />
+    <ClInclude Include="natural.h" />
+    <ClInclude Include="polynomial.h" />
+    <ClInclude Include="rational.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
