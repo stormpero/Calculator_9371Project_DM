@@ -1,6 +1,10 @@
 #include "Allfunc.h"
+#include "natural.h"
+#include "integer.h"
+#include "rational.h"
+#include "polynomial.h"
 
-vector<int> input() // Ввод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
+vector<int> input() // Ввод числа 
 {
 	string s; cin >> s;	
 	vector <int> test(s.length());
@@ -11,7 +15,7 @@ vector<int> input() // Ввод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
 	return test;	
 }		
 
-void output(vector <int> test) // Вывод числа // Приветствуется дороботка кода(ОПТИМИЗАЦИЯ)
+void output(vector <int> test) // Вывод числа 
 {
 	if (test[0] == 1) cout << "-";
 	for (int i = 1; i < test.size(); i++)
