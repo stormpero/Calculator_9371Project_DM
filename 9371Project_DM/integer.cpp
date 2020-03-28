@@ -206,29 +206,12 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) //¬ычитание цел
 	}
 }
 
-vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N, vector<int> vector_3_Z) //ѕќ„»Ќ» »√ќ–№№№
-{															 
-	if (vector_2_N.empty()) { //≈сли на вход  ÷елое разделить на натуральное
-
-		if ((POZ_Z_D(vector_1_N) == 0)) // если ƒелимое = 0 возвращаем 0 // тут еще можно вставить если ƒелитель 0 ќЅ—”ƒ»“№
-			return { 0 };
-
-		bool f;//ќтвечает за знак
-		if (POZ_Z_D(vector_1_N) == 2)//2 - положительное, 0 Ч равное нулю, 1 - отрицательное
-			f = 0;
-		else
-			f = 1;
-		vector_1_N.erase(vector_1_N.begin()); //отчищаем знак
-
-		vector<int> result;
-		result = DIV_NN_N(vector_1_N, vector_3_Z);//делим как натуральные
-		result.insert(result.begin(), f);//вставл€ем знак
-		return (result);
-	}
-
-	if (vector_3_Z.empty()) //≈сли на вход  ÷елое разделить на ÷елое
-	{
-		if ((POZ_Z_D(vector_1_N) == 0))// если ƒелимое = 0 возвращаем 0 // тут еще можно вставить если ƒелитель 0 ќЅ—”ƒ»“№
+vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N) //ѕќ„»Ќ»Ќќ
+{
+	if ((POZ_Z_D(vector_2_N) == 0))// если ƒелитель = 0 ошибка
+		throw ("Divider 0!");
+	
+		if ((POZ_Z_D(vector_1_N) == 0))// если ƒелимое = 0 возвращаем 0 
 			return { 0 };
 
 		bool f;//ќтвечает за знак
@@ -243,7 +226,7 @@ vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N, vector<int>
 		result = DIV_NN_N(vector_1_N, vector_2_N);//ƒелим как целые
 		result.insert(result.begin(), f);//¬ставл€ем знак
 		return (result);
-	}
+	
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

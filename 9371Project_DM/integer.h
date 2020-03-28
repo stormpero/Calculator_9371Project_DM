@@ -30,7 +30,7 @@ vector<int> MUL_ND_N(vector<int> entry, int number);  //Умножение целого на цифр
 
 vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2); // Вычитание целых чисел
 
-vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N, vector<int> vector_3_Z);// Частное от деления большего целого числа на меньшее или равное натуральное с остатком
+vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N);// Частное от деления большего целого числа на меньшее или равное натуральное с остатком
 
 //////////////////////////////////////////////////////////////////////////////
 
