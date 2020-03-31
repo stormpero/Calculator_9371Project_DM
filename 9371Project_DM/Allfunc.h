@@ -35,3 +35,4 @@ Drob LED_P_Q(vector <Drob> polynominal); // Старшимй коэффицие�
 
 vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b, int row);// Сложение матриц//Жиренкин Артем
 
+vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second); // Вычитание многчленов // Михаил Киришский
