@@ -19,6 +19,8 @@
     <ClCompile Include="RED_QQ_Q.cpp" />
     <ClCompile Include="SUB_PP_P.cpp" />
     <ClCompile Include="ADD_QQ_Q.cpp" />
+    <ClCompile Include="MUL_QQ_Q.cpp" />
+    <ClCompile Include="MAT_Q_MUL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />

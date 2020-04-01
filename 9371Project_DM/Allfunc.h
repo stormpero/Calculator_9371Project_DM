@@ -19,6 +19,8 @@ Drob DIV_QQ_Q(Drob a, Drob b); // Деление дробей(делитель �
 
 Drob SUB_QQ_Q(Drob f, Drob s); // Vichitanie dvuh chisel // danya
 
+Drob MUL_QQ_Q(Drob num1, Drob num2); // умножение дробей // Астахов Михаил
+
 ////////////////////////////////////////////////////////////Рациональные числа////////////////////////////////////////////////////////////
 //
 //
@@ -34,5 +36,7 @@ int DEG_P_N(vector <Drob> a); // Степень многочлена //Стар�
 Drob LED_P_Q(vector <Drob> polynominal); // Старшимй коэффициент многочлена //Даниил
 
 vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b, int row);// Сложение матриц//Жиренкин Артем
+
+vector<vector<int>> MAT_Q_MUL(vector<vector<int>> a, vector<vector<int>> b); // Умножение матриц // Астахов Михаил
 
 vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second); // Вычитание многчленов // Михаил Киришский
