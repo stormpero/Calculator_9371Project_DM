@@ -15,6 +15,10 @@
     <ClCompile Include="polynomial.cpp" />
     <ClCompile Include="rational.cpp" />
     <ClCompile Include="SUB_QQ_Q.cpp" />
+    <ClCompile Include="PAC_P_Q.cpp" />
+    <ClCompile Include="RED_QQ_Q.cpp" />
+    <ClCompile Include="SUB_PP_P.cpp" />
+    <ClCompile Include="ADD_QQ_Q.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
