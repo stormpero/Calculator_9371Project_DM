@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="9371Project_DM.cpp" />
+    <ClCompile Include="ADD_PP_P.cpp" />
     <ClCompile Include="ADD_QQ_Q.cpp" />
     <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="DIV_QQ_Q.cpp" />
