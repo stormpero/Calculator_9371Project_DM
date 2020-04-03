@@ -3,7 +3,7 @@
 #include "natural.h"
 #include "integer.h"
 
-vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b) {
+vector<Drob> DIV_PP_P(vector<Drob> a, vector<Drob> b) {
 
 	vector<Drob> old, jun, newe, result, priv;
 	vector<int> xk;
