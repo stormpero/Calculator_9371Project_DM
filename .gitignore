@@ -11,3 +11,7 @@ Debug/
 *.ncb
 *.sdf
 *.opensdf
+*.vcxproj
+*vcxproj.*
+*.vcproj
+*vcproj.*.*.user
