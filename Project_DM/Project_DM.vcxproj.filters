@@ -78,6 +78,9 @@
     <ClCompile Include="TRANS_Z_Q.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="DIV_PP_P.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h">

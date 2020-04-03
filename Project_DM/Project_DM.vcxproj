@@ -154,6 +154,7 @@
     <ClCompile Include="ADD_PP_P.cpp" />
     <ClCompile Include="ADD_QQ_Q.cpp" />
     <ClCompile Include="DEG_P_N.cpp" />
+    <ClCompile Include="DIV_PP_P.cpp" />
     <ClCompile Include="DIV_QQ_Q.cpp" />
     <ClCompile Include="integer.cpp" />
     <ClCompile Include="INT_Q_B.cpp" />
