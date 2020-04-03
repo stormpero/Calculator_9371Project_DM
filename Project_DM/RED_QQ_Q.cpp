@@ -13,6 +13,18 @@ Drob RED_Q_Q(Drob a)
 		dem = DIV_ZZ_Z(dem, NOD);// Получаем частное от деления знаменателя на НОД
 		NOD = GCF_NN_N(num, dem);//Находим НОД частных дроби
 
+	};
+	if (a.numerator[0] == 0) {
+		num.insert(num.begin(), 0);
+	}
+	else {
+		num.insert(num.begin(), 1);
+	}
+	if (a.denominator[0] == 0) {
+		dem.insert(dem.begin(), 0);
+	}
+	else {
+		dem.insert(dem.begin(), 1);
 	}
 	a.numerator = num;
 	a.denominator = dem;
