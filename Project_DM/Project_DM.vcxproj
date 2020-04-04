@@ -157,6 +157,7 @@
     <ClCompile Include="integer.cpp" />
     <ClCompile Include="LED_P_Q.cpp" />
     <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="MOD_PP_P.cpp" />
     <ClCompile Include="MUL_PQ_P.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
     <ClCompile Include="natural.cpp" />
