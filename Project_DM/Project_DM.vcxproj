@@ -152,31 +152,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ADD_PP_P.cpp" />
-    <ClCompile Include="ADD_QQ_Q.cpp" />
     <ClCompile Include="DEG_P_N.cpp" />
     <ClCompile Include="DIV_PP_P.cpp" />
-    <ClCompile Include="DIV_QQ_Q.cpp" />
     <ClCompile Include="integer.cpp" />
-    <ClCompile Include="INT_Q_B.cpp" />
     <ClCompile Include="LED_P_Q.cpp" />
-    <ClCompile Include="MAT_Q_MUL.cpp" />
-    <ClCompile Include="MAT_Q_SUM.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="MUL_PQ_P.cpp" />
     <ClCompile Include="MUL_Pxk_P.cpp" />
-    <ClCompile Include="MUL_QQ_Q.cpp" />
     <ClCompile Include="natural.cpp" />
     <ClCompile Include="PAC_P_Q.cpp" />
     <ClCompile Include="polynomial.cpp" />
     <ClCompile Include="Project_DM.cpp" />
     <ClCompile Include="rational.cpp" />
-    <ClCompile Include="RED_QQ_Q.cpp" />
     <ClCompile Include="SUB_PP_P.cpp" />
-    <ClCompile Include="SUB_QQ_Q.cpp" />
-    <ClCompile Include="TRANS_Q_Z.cpp" />
-    <ClCompile Include="TRANS_Z_Q.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
     <ClInclude Include="integer.h" />
+    <ClInclude Include="matrix.h" />
     <ClInclude Include="natural.h" />
     <ClInclude Include="polynomial.h" />
     <ClInclude Include="rational.h" />
