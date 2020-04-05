@@ -62,7 +62,7 @@ vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction); // Вычитание дроб
 
 ////////////////////////// Табояков Иван  ///////////////////////////////////
 
-vector<Drob> NMR_P_P(vector<Drob> polynomial);//Кратные корни в простые
+vector<Drob> NMR_P_P(vector<Drob> polynomial); // Кратные корни в простые
 
 //////////////////////////////////////////////////////////////////////////////
 

@@ -176,7 +176,15 @@ vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Табояков Иван      //
 
-
+vector<Drob> NMR_P_P(vector<Drob> polynomial)
+{
+	vector<Drob> pr = DER_P_P(polynomial);
+	vector <Drob> nod = GCF_PP_P(polynomial, pr);
+	if ((nod[0].numerator[0] == 1) && (nod[0].denominator[0] == 1)) 
+		polynomial = DIV_PP_P(polynomial, pr);
+	
+	return polynomial;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
