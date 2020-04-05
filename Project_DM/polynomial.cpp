@@ -7,6 +7,29 @@ int DEG_P_N(vector <Drob> a)
 	return a.size() - 1;
 }
 
+vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec)
+{	
+	vector <Drob> null = { { vector<int> {0}, vector<int> {1} } };
+	vector<Drob> num1 = fir;
+	vector<Drob> num2 = sec;
+	if (DEG_P_N(sec) > DEG_P_N(fir))
+		swap(num1, num2);
+	else if (DEG_P_N(fir) == DEG_P_N(sec)) 
+	{
+		Drob drop = SUB_QQ_Q(fir[DEG_P_N(fir)], sec[DEG_P_N(sec)]);
+		if (drop.numerator[0] == 1) 
+			swap(num1, num2);
+	}
+	while (num2 != null) // Цикл пока b != 0
+	{
+		vector <Drob> c; //Вспомогательный вектор
+		c = MOD_PP_P(num1, num2); // Остаток от деления a на b
+		num1 = num2;
+		num2 = c;
+	}
+	return num1;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
