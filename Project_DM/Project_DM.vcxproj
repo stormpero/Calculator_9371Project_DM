@@ -151,21 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ADD_PP_P.cpp" />
-    <ClCompile Include="DEG_P_N.cpp" />
-    <ClCompile Include="DIV_PP_P.cpp" />
     <ClCompile Include="integer.cpp" />
-    <ClCompile Include="LED_P_Q.cpp" />
     <ClCompile Include="matrix.cpp" />
-    <ClCompile Include="MOD_PP_P.cpp" />
-    <ClCompile Include="MUL_PQ_P.cpp" />
-    <ClCompile Include="MUL_Pxk_P.cpp" />
     <ClCompile Include="natural.cpp" />
-    <ClCompile Include="PAC_P_Q.cpp" />
     <ClCompile Include="polynomial.cpp" />
     <ClCompile Include="Project_DM.cpp" />
     <ClCompile Include="rational.cpp" />
-    <ClCompile Include="SUB_PP_P.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allfunc.h" />
