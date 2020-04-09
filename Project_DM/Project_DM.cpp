@@ -14,7 +14,20 @@ vector<int> input() // Ввод числа
 	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
 	return test;
 }
+vector <Drob> MUL_PP_P(vector <Drob> a, vector <Drob> b)
+{
+	int polynom_res_size = a.size() + b.size() - 1;
+	vector <Drob>  polynom_res(polynom_res_size);
+	for (int i = 0; i < a.size(); ++i)
+	{
+		for (int j = 0; j < b.size(); ++j)
+		{
+			polynom_res[i + j] += ((a[0].numerator[i] * b[j].numerator[j]) / (a[i].denominator[i] * b[j].denominator[j]));
+		}
+	}
+	return  polynom_res;
 
+}
 void output(vector <int> test) // Вывод числа 
 {
 	if (test[0] == 1) cout << "-";
