@@ -156,7 +156,31 @@ vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Астахов Михаил      //
 
+vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s)
+{
+	vector <Drob> result;
+	result = MUL_PQ_P(f, s[0]); // Умножаем первый многочлен на свободный член второго
 
+
+	vector <int> ssize;
+	int n = s.size();
+	while (n != 0)              // Здесь костыль. Так как MUL_Pxk_P на вход принимает многочлен и вектор, а s.size() это просто число типа int. Поэтому пришлось преобразовывать int к vector <int>
+	{
+		ssize.push_back(n % 10);
+		n /= 10;
+	}
+	for (int i = 0; i < ssize.size(); i++)
+	{
+		swap(ssize[i], ssize[ssize.size() - 1 - i]);
+	}
+
+	for (vector <int> k = { 1 }, int kk = 1; k != ssize; k = ADD_1N_N(k), kk++) // Умножаем первый многочлен на x^k второго многочлена и прибавляем получившиеся к результату до тех пор пока многоочлен не кончится
+	{
+		if (!(s[kk].numerator[0] == 0 && s[kk].numerator.size() == 1)) // это условие чисто ради оптимизации, чтобы прога не перемножала напрасно один многочлен на x^k, когда коэффициент перед x^k равен нулю
+			result = ADD_PP_P(result, MUL_PQ_P(MUL_Pxk_P(f, k), s[kk]));
+	}
+	return result;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -179,7 +203,7 @@ vector<Drob> DER_P_P(vector<Drob> polynomial)
 	{
 		int size = k;
 		for (; size >= 0; size--)
-			ADD_1N_N(i.numerator);
+			i.numerator = ADD_1N_N(i.numerator); // Я тут пофиксил слегка. ДО этого было: ADD_1N_N(i.numerator)       что не совсем правильно
 		polynomial[k] = MUL_QQ_Q(polynomial[k], i);
 	}
 	polynomial.erase(polynomial.begin());//чистим свободный член на 0
