@@ -18,15 +18,26 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<int>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<int>> a); //Вывод матрицы
 
+vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
+{
+	vector<vector<int>> c(b.size());//добавляем двумерный вектор,в который будет вноситься результат умножения
+
+	for (int i = 0; i < c.size(); i++)
+	{
+		c[i].resize((MUL_ZZ_Z(a[i], b[i])).size());
+		c[i] = MUL_ZZ_Z(a[i], b[i]);
+	}
+	return(c);//возвращаем матрицу результата
+
+}
 int main()
 {
 	try
 	{
-		setlocale(LC_ALL,"ru");
-
-		vector<int> a31;
-		a31 = input_integer();
-		output_integer(a31);
+		setlocale(LC_ALL,"ru");		
+		//vector<int> a31;
+		//a31 = input_integer();
+		//output_integer(a31);
 
 		//vector<int> a32;
 		//a32 = input_natural();
@@ -36,19 +47,24 @@ int main()
 		//test = input_rational(); 
 		//output_rational(test);
 
-		//vector <Drob> test1;
-		//test1 = input_polinom();
-		//output_polinom(test1);
+		vector <Drob> test1;
+		test1 = input_polinom();
+		test1 = DER_P_P(test1);
+		output_polinom(test1);
 
-		/*vector<vector<int>> a;
+
+		/*vector<vector<int>> a,b;
 		a = input_matrix();
+		b = input_matrix();
+		
+		a = MAT_Q_MUL1(a, b);
 		output_matrix(a);*/
 	}
 	catch (const char* er)
 	{
 		system("color C");
 		cout << "Error: " << er << endl;
-		system("color 0");
+		system("color 0");		
 	}
 }
 
