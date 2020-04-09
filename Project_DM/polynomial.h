@@ -56,6 +56,8 @@ vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b); // Сложение многочленов
 
 vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction); // Вычитание дробей
 
+vector<Drob> DER_P_P(vector<Drob> polynomial);
+
 //////////////////////////////////////////////////////////////////////////////
 
 

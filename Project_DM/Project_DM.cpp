@@ -3,9 +3,61 @@
 #include "integer.h"
 #include "rational.h"
 #include "polynomial.h"
+vector<int> input_natural(); // Ввод натурального числа
+void output_natural(vector <int> test); // Вывод натурального числа
 
+vector<int> input_integer(); // Ввод целого числа
+void output_integer(vector <int> test); // Вывод целого числа
 
-vector<int> input() // Ввод числа 
+Drob input_rational(); // Ввод дроби
+void output_rational(Drob a); // Вывод дроби
+
+vector<Drob> input_polinom(); // Ввод многочлена
+void output_polinom(vector<Drob> polin); //Вывод многочлена
+
+vector<vector<int>> input_matrix(); // Ввод матрицы
+void output_matrix(vector<vector<int>> a); //Вывод матрицы
+
+int main()
+{
+	setlocale(LC_ALL,"ru");
+
+	vector<int> a31;
+	a31 = input_integer();
+	output_integer(a31);
+
+	//vector<int> a32;
+	//a32 = input_natural();
+	//output_natural(a32);
+
+	//Drob test;
+	//test = input_rational(); 
+	//output_rational(test);
+
+	//vector <Drob> test1;
+	//test1 = input_polinom();
+	//output_polinom(test1);
+
+	/*vector<vector<int>> a;
+	a = input_matrix();
+	output_matrix(a);*/
+}
+
+vector<int> input_natural()
+{
+	string s; cin >> s;
+	vector <int> test(s.length());
+	for (int i = 0; i < test.size(); i++)
+		test[i] = s[i] - '0';
+	return test;
+}
+void output_natural(vector <int> test) // Вывод числа 
+{
+	for (int i = 0; i < test.size(); i++)
+		cout << test[i];
+}
+//
+vector<int> input_integer() // Ввод числа 
 {
 	string s; cin >> s;
 	vector <int> test(s.length());
@@ -15,43 +67,86 @@ vector<int> input() // Ввод числа
 	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
 	return test;
 }
-void output(vector <int> test) // Вывод числа 
+void output_integer(vector <int> test) // Вывод числа 
 {
 	if (test[0] == 1) cout << "-";
 	for (int i = 1; i < test.size(); i++)
 		cout << test[i];
 }
-int main()
+//
+Drob input_rational() // Ввод числа 
 {
-	//vector<int> t2 = { 5,0 }; // Наше число, которое должно попасть в числитель
-	vector<int> t3 = { 2,5 };
-	//t3 = GCF_NN_N(t2, t3);
+	Drob number;
 
-	//vector <int> sd(input());
-	vector<int> result;
-	result.push_back(0);
-	/*vector <int> sd(ABS_Z_N(t3));
-	for (int i = 0; i < sd.size(); i++)
-		cout << sd[i];	 */
-		//Drob x = TRANS_Z_Q(t2);// Копираю вектор из функции в новый вектор
-		//for (int i = 0; i < x.numerator.size(); i++)// Вывод числителя
-		//	cout << x.numerator[i];
-		//cout << endl;
-		//for (int i = 0; i < x.denominator.size(); i++)// Вывод знаменателя
-		//	cout << x.denominator[i];
+	cout << "Введите числитель:" << endl;
+	string s; cin >> s;
+	number.numerator.resize(s.length());
+	for (int i = 1; i < number.numerator.size(); i++)
+		number.numerator[i] = s[i] - '0';
+	if (s[0] == '-') number.numerator[0] = 1;
+	else { number.numerator[0] = s[0] - '0';  number.numerator.insert(number.numerator.begin(), 0); }
 
-		/*vector<int> t2 = { 1,3,5,7 };
-		vector<int> t1 = { 1,3,5,7 };
-		t1 = SUB_NN_N(t2, t1);*/
+	cout << "Введите знаменатель:" << endl;
+	cin >> s;
+	number.denominator.resize(s.length());
+	for (int i = 0; i < number.denominator.size(); i++)
+		number.denominator[i] = s[i] - '0';
 
-		//vector <Drob> test;
-		//test[0].numerator[0] = 1;	
-		//vector<int> t2 = { 1,3,5,7 };
-		//vector<int> t3;
-		//vector<int> t1 = { 0,3,5 };
-		//for (int i = 0; i < t3.size(); i++)
-		//	cout << t3[i];
-		//
-		// output(input());	
+	return number;
 }
-
+void output_rational(Drob a)
+{
+	if (a.numerator[0] == 1) cout << "-";
+	for (int i = 1; i < a.numerator.size(); i++)
+		cout << a.numerator[i];
+	cout<<"\\";
+	for (int i = 0; i < a.denominator.size(); i++)
+		cout << a.denominator[i];
+}
+vector<Drob> input_polinom()
+{		
+	cout << "Введите степень многочлена:" << endl;
+	int degree; cin >> degree; degree++;
+	vector<Drob> a(degree);
+	for (int i = a.size()-1; i >= 0; i--)	
+		a[i] = input_rational();	
+	return a;
+}
+void output_polinom(vector<Drob> polin)
+{
+	for (int i = polin.size() - 1; i >= 1; i--)
+	{
+		output_rational(polin[i]);
+		cout << "x^"<< i;
+		cout << " + ";
+	}
+	output_rational(polin[0]);
+}
+vector<vector<int>> input_matrix()
+{
+	cout << "Введите размер матрицы:" << endl;
+	int sizemat;
+	cin >> sizemat;
+	vector<vector<int>> a(sizemat*sizemat);
+	
+	for (int i = 0; i < a.size(); i++)	
+		a[i] = input_integer();
+	
+	return a;
+}
+void output_matrix(vector<vector<int>> a)
+{
+	int sd = a.size();
+	int sizemat = sqrt(sd);
+	for (int i = 0; i < sd; i++)
+	{
+		if (i == sizemat)
+		{
+			cout << endl;
+			sizemat += sizemat;
+		}
+			
+		output_integer(a[i]);
+		cout << " ";
+	}
+}

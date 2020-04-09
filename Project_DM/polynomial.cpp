@@ -7,7 +7,7 @@ int DEG_P_N(vector <Drob> a)
 	return a.size() - 1;
 }
 
-vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec)
+vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec) // ОШИБКА
 {	
 	vector <Drob> null = { { vector<int> {0}, vector<int> {1} } };
 	vector<Drob> num1 = fir;
@@ -20,14 +20,14 @@ vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec)
 		if (drop.numerator[0] == 1) 
 			swap(num1, num2);
 	}
-	while (num2 != null) // Цикл пока b != 0
-	{
-		vector <Drob> c; //Вспомогательный вектор
-		c = MOD_PP_P(num1, num2); // Остаток от деления a на b
-		num1 = num2;
-		num2 = c;
-	}
-	return num1;
+	//while (num2 != null) // Цикл пока b != 0
+	//{
+	//	vector <Drob> c; //Вспомогательный вектор
+	//	c = MOD_PP_P(num1, num2); // Остаток от деления a на b
+	//	num1 = num2;
+	//	num2 = c;
+	//}
+	return num1;	
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +108,8 @@ vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second)
 
 vector <Drob> MOD_PP_P(vector <Drob> f, vector <Drob> s)
 {
-	return SUB_PP_P(f, MUL_PP_P(DIV_PP_P(f, s), s)); // Сначала получаем целую часть деления f на s, затем умножаем результат на делитель (т. е s). То, что в результате получилось, вычитаем из делимого (т. е f)	
+	return f;// УДАЛИТЬ
+	//return SUB_PP_P(f, MUL_PP_P(DIV_PP_P(f, s), s)); // Сначала получаем целую часть деления f на s, затем умножаем результат на делитель (т. е s). То, что в результате получилось, вычитаем из делимого (т. е f)	
 }
 
 Drob LED_P_Q(vector <Drob> polynominal)
@@ -167,6 +168,20 @@ vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction)
 {
 	for (int i = polynomial.size() - 1; i >= 0; i--) // Цикл вычитания
 		polynomial[i] = MUL_QQ_Q(polynomial[i], fraction);
+	return (polynomial);
+}
+
+vector<Drob> DER_P_P(vector<Drob> polynomial)
+{
+	Drob i;	//отвечает за степень (вид a/1)
+	//i.denominator.push_back(1);
+	//for (int k = polynomial.size() - 1; k > 0; k--)
+	//{
+	//	i.numerator.push_back(k);
+	//	polynomial[k] = MUL_QQ_Q(polynomial[k], k);
+	//	i.numerator.erase(polynomial.begin());
+	//}
+	//polynomial.erase(polynomial.begin());//чистим свободный член на 0
 	return (polynomial);
 }
 
