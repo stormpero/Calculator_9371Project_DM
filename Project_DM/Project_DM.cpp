@@ -20,27 +20,36 @@ void output_matrix(vector<vector<int>> a); //Вывод матрицы
 
 int main()
 {
-	setlocale(LC_ALL,"ru");
+	try
+	{
+		setlocale(LC_ALL,"ru");
 
-	vector<int> a31;
-	a31 = input_integer();
-	output_integer(a31);
+		vector<int> a31;
+		a31 = input_integer();
+		output_integer(a31);
 
-	//vector<int> a32;
-	//a32 = input_natural();
-	//output_natural(a32);
+		//vector<int> a32;
+		//a32 = input_natural();
+		//output_natural(a32);
 
-	//Drob test;
-	//test = input_rational(); 
-	//output_rational(test);
+		//Drob test;
+		//test = input_rational(); 
+		//output_rational(test);
 
-	//vector <Drob> test1;
-	//test1 = input_polinom();
-	//output_polinom(test1);
+		//vector <Drob> test1;
+		//test1 = input_polinom();
+		//output_polinom(test1);
 
-	/*vector<vector<int>> a;
-	a = input_matrix();
-	output_matrix(a);*/
+		/*vector<vector<int>> a;
+		a = input_matrix();
+		output_matrix(a);*/
+	}
+	catch (const char* er)
+	{
+		system("color C");
+		cout << "Error: " << er << endl;
+		system("color 0");
+	}
 }
 
 vector<int> input_natural()

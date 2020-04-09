@@ -173,15 +173,17 @@ vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction)
 
 vector<Drob> DER_P_P(vector<Drob> polynomial)
 {
-	Drob i;	//отвечает за степень (вид a/1)
-	//i.denominator.push_back(1);
-	//for (int k = polynomial.size() - 1; k > 0; k--)
-	//{
-	//	i.numerator.push_back(k);
-	//	polynomial[k] = MUL_QQ_Q(polynomial[k], k);
-	//	i.numerator.erase(polynomial.begin());
-	//}
-	//polynomial.erase(polynomial.begin());//чистим свободный член на 0
+	Drob i;//отвечает за степень (вид a/1)
+	long size = polynomial.size() - 1; //запишем степень в вектор
+	i.numerator = { 0 };
+	for (; size >= 0; size--)
+		ADD_1N_N(i.numerator);
+	i.denominator = { 1 };
+
+	for (; i.numerator != { 0 }; SUB_NDN_N(i.numerator, { 1 }))//нахождение производной
+		polynomial[i] = MUL_QQ_Q(polynomial[i.numerator], i);
+
+	polynomial[0].numerator = 0;//изменяем свободный член на 0
 	return (polynomial);
 }
 
