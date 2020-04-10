@@ -168,7 +168,7 @@ vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s)
 		ssize.push_back(n % 10);
 		n /= 10;
 	}
-	for (int i = 0; i < ssize.size(); i++)
+	for (int i = 0; i < ssize.size() / 2; i++)
 	{
 		swap(ssize[i], ssize[ssize.size() - 1 - i]);
 	}
