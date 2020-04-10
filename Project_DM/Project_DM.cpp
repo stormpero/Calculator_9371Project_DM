@@ -3,6 +3,7 @@
 #include "integer.h"
 #include "rational.h"
 #include "polynomial.h"
+#include "matrix.h"
 vector<int> input_natural(); // Ввод натурального числа
 void output_natural(vector <int> test); // Вывод натурального числа
 
@@ -18,18 +19,6 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<int>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<int>> a); //Вывод матрицы
 
-vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
-{
-	vector<vector<int>> c(b.size());//добавляем двумерный вектор,в который будет вноситься результат умножения
-
-	for (int i = 0; i < c.size(); i++)
-	{
-		c[i].resize((MUL_ZZ_Z(a[i], b[i])).size());
-		c[i] = MUL_ZZ_Z(a[i], b[i]);
-	}
-	return(c);//возвращаем матрицу результата
-
-}
 int main()
 {
 	try
@@ -48,15 +37,20 @@ int main()
 		//output_rational(test);
 
 		vector <Drob> test1;
+		vector <Drob> test2;
 		test1 = input_polinom();
-		test1 = DER_P_P(test1);
+		cout << endl;
+		test2 = input_polinom();
+		test1 = MUL_PP_P(test1,test2);
+		cout << endl;
 		output_polinom(test1);
 
 
-		/*vector<vector<int>> a,b;
+	/*	vector<vector<int>> a,b;
 		a = input_matrix();
+		cout << endl;
 		b = input_matrix();
-		
+		cout << endl;
 		a = MAT_Q_MUL1(a, b);
 		output_matrix(a);*/
 	}
@@ -64,7 +58,7 @@ int main()
 	{
 		system("color C");
 		cout << "Error: " << er << endl;
-		system("color 0");		
+		system("color 0");
 	}
 }
 

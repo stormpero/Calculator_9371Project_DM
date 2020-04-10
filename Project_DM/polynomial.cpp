@@ -107,9 +107,8 @@ vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second)
 ///////////////////////////////////////////////////////////////////////////////////////////////     Чиганов Даниил     //
 
 vector <Drob> MOD_PP_P(vector <Drob> f, vector <Drob> s)
-{
-	return f;// УДАЛИТЬ
-	//return SUB_PP_P(f, MUL_PP_P(DIV_PP_P(f, s), s)); // Сначала получаем целую часть деления f на s, затем умножаем результат на делитель (т. е s). То, что в результате получилось, вычитаем из делимого (т. е f)	
+{	
+	return SUB_PP_P(f, MUL_PP_P(DIV_PP_P(f, s), s)); // Сначала получаем целую часть деления f на s, затем умножаем результат на делитель (т. е s). То, что в результате получилось, вычитаем из делимого (т. е f)	
 }
 
 Drob LED_P_Q(vector <Drob> polynominal)
@@ -156,7 +155,7 @@ vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Астахов Михаил      //
 
-vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s)
+vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s) 
 {
 	vector <Drob> result;
 	result = MUL_PQ_P(f, s[0]); // Умножаем первый многочлен на свободный член второго
@@ -173,11 +172,12 @@ vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s)
 	{
 		swap(ssize[i], ssize[ssize.size() - 1 - i]);
 	}
-
-	for (vector <int> k = { 1 }, int kk = 1; k != ssize; k = ADD_1N_N(k), kk++) // Умножаем первый многочлен на x^k второго многочлена и прибавляем получившиеся к результату до тех пор пока многоочлен не кончится
-	{
+	int kk = 1;
+	for (vector <int> k = { 1 }; k != ssize; k = ADD_1N_N(k)) // Умножаем первый многочлен на x^k второго многочлена и прибавляем получившиеся к результату до тех пор пока многоочлен не кончится
+	{		
 		if (!(s[kk].numerator[0] == 0 && s[kk].numerator.size() == 1)) // это условие чисто ради оптимизации, чтобы прога не перемножала напрасно один многочлен на x^k, когда коэффициент перед x^k равен нулю
 			result = ADD_PP_P(result, MUL_PQ_P(MUL_Pxk_P(f, k), s[kk]));
+		kk++;
 	}
 	return result;
 }
