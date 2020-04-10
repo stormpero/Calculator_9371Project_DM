@@ -19,6 +19,38 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<int>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<int>> a); //Вывод матрицы
 
+vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
+{
+	vector<vector<int>> c(b.size());//добавляем двумерный вектор,в который будет вноситься результат умножения
+
+	int ll, l = 0;
+	ll = l;
+	int z = 0;
+
+	for (int i = 0; i < c.size(); i++)
+	{
+		int leg = sqrt(c.size());
+		if ((i % leg == 0) && (i != 0))
+		{
+			l += leg;
+			ll = l;
+			z = 0;
+		}
+
+		if (i % leg != 0)
+		{
+			l = ll;
+			z = i % leg;
+		}
+
+		for (int j = 0; j < leg; j++, l++, z += leg)
+		{
+			c[i].resize((MUL_ZZ_Z(a[l], b[z])).size());
+			c[i] = ADD_ZZ_Z(c[i], MUL_ZZ_Z(a[l], b[z]));
+		}
+	}
+	return(c);//возвращаем матрицу результата
+}
 int main()
 {
 	try
@@ -36,23 +68,23 @@ int main()
 		//test = input_rational(); 
 		//output_rational(test);
 
-		vector <Drob> test1;
-		vector <Drob> test2;
-		test1 = input_polinom();
-		cout << endl;
-		test2 = input_polinom();
-		test1 = MUL_PP_P(test1,test2);
-		cout << endl;
-		output_polinom(test1);
+		//vector <Drob> test1;
+		//vector <Drob> test2;
+		//test1 = input_polinom();
+		//cout << endl;
+		//test2 = input_polinom();
+		//test1 = MUL_PP_P(test1,test2);
+		//cout << endl;
+		//output_polinom(test1);
 
 
-	/*	vector<vector<int>> a,b;
+		vector<vector<int>> a,b;
 		a = input_matrix();
 		cout << endl;
 		b = input_matrix();
 		cout << endl;
 		a = MAT_Q_MUL1(a, b);
-		output_matrix(a);*/
+		output_matrix(a);
 	}
 	catch (const char* er)
 	{
