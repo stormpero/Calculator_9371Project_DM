@@ -30,6 +30,16 @@ void output_matrix(vector<vector<int>> a); //Вывод матрицы
 //
 //	return(c);//возвращаем матрицу результата
 //}
+
+
+exc mist()
+{
+	exc te;
+	te.file = __FILE__,
+	te.line_num = __LINE__,
+	te.name_exc = "Empty input";
+	return te;
+}
 int main()
 {
 	try
@@ -37,16 +47,18 @@ int main()
 		setlocale(LC_ALL,"ru");		
 		vector<int> a31;
 		vector<int> a32;
-
+		
 		//a31 = input_integer();
 		//a32 = input_integer();
 		//a31 = ADD_ZZ_Z(a31,a32);
-		//output_integer(a31);	
+		//output_integer(a31);
+
+		throw mist();
 		a32 = input_natural();
 		a31 = input_natural();
-		a31 = ADD_NN_N1(a31, a32);
+		a31 = ADD_NN_N(a31, a32);
 		output_natural(a31);
-
+		
 		//Drob test;
 		//test = input_rational(); 
 		//output_rational(test);
@@ -69,11 +81,14 @@ int main()
 		//a = MAT_Q_MUL1(a, b);
 		//output_matrix(a);
 	}
-	catch (const char* er)
-	{
+	catch (exc s)
+	{		
 		system("color C");
-		cout << "Error: " << er << endl;
+		cout << "Error: " << s.name_exc << endl;
+		cout << "Фaйл: " << s.file << endl;
+		cout << "Строчка: " << s.line_num << endl;
 		system("color 0");
+
 	}
 }
 
