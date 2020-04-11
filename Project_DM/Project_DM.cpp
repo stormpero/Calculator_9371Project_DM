@@ -19,50 +19,33 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<int>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<int>> a); //Вывод матрицы
 
-vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
-{
-	vector<vector<int>> c(b.size());//добавляем двумерный вектор,в который будет вноситься результат умножения
-
-	int ll, l = 0;
-	ll = l;
-	int z = 0;
-
-	for (int i = 0; i < c.size(); i++)
-	{
-		int leg = sqrt(c.size());
-		if ((i % leg == 0) && (i != 0))
-		{
-			l += leg;
-			ll = l;
-			z = 0;
-		}
-
-		if (i % leg != 0)
-		{
-			l = ll;
-			z = i % leg;
-		}
-
-		for (int j = 0; j < leg; j++, l++, z += leg)
-		{
-			c[i].resize((MUL_ZZ_Z(a[l], b[z])).size());
-			c[i] = ADD_ZZ_Z(c[i], MUL_ZZ_Z(a[l], b[z]));
-		}
-	}
-	return(c);//возвращаем матрицу результата
-}
+//vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
+//{
+//	vector<vector<int>> c(b.size()); // добавляем двумерный вектор,в который будет вноситься результат умножения
+//	int sizec = c.size();
+//	for (int i = 0; i < sizec; i++)
+//		for (int j = 0; j < sizec; j++)
+//			for (int h = 0; h < sizec; h++)
+//				c[j + sizec * i] = ADD_ZZ_Z(c[j + sizec * i], MUL_ZZ_Z(a[h + sizec * i], b[h * sizec + j]));
+//
+//	return(c);//возвращаем матрицу результата
+//}
 int main()
 {
 	try
 	{
 		setlocale(LC_ALL,"ru");		
-		//vector<int> a31;
-		//a31 = input_integer();
-		//output_integer(a31);
+		vector<int> a31;
+		vector<int> a32;
 
-		//vector<int> a32;
-		//a32 = input_natural();
-		//output_natural(a32);
+		//a31 = input_integer();
+		//a32 = input_integer();
+		//a31 = ADD_ZZ_Z(a31,a32);
+		//output_integer(a31);	
+		a32 = input_natural();
+		a31 = input_natural();
+		a31 = ADD_NN_N1(a31, a32);
+		output_natural(a31);
 
 		//Drob test;
 		//test = input_rational(); 
@@ -78,13 +61,13 @@ int main()
 		//output_polinom(test1);
 
 
-		vector<vector<int>> a,b;
-		a = input_matrix();
-		cout << endl;
-		b = input_matrix();
-		cout << endl;
-		a = MAT_Q_MUL1(a, b);
-		output_matrix(a);
+		//vector<vector<int>> a,b;
+		//a = input_matrix();
+		//cout << endl;
+		//b = input_matrix();
+		//cout << endl;
+		//a = MAT_Q_MUL1(a, b);
+		//output_matrix(a);
 	}
 	catch (const char* er)
 	{
