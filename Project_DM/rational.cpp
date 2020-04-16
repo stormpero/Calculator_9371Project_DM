@@ -60,16 +60,18 @@ Drob MUL_QQ_Q(Drob num1, Drob num2)
 Drob ADD_QQ_Q(Drob a, Drob b)
 {
 	Drob res;
-	vector<int> zn1 = ABS_Z_N(a.denominator);
+	vector<int> zn1 = a.denominator;
 	vector<int> zn2 = b.denominator;
-	vector <int> zn = LCM_NN_N(zn1, zn2);
-	vector <int> mn = DIV_ZZ_Z(zn, zn1);
+	vector <int> zn = LCM_NN_N(a.denominator, b.denominator);	
+	vector <int> mn = DIV_NN_N(zn, a.denominator);
+	mn.insert(mn.begin(), 0);
 	vector <int> chisl1 = MUL_ZZ_Z(a.numerator, mn);
-	vector <int> mn1 = DIV_ZZ_Z(zn, zn2);
+	vector <int> mn1 = DIV_NN_N(zn, b.denominator);
+	mn1.insert(mn1.begin(), 0);
 	vector <int> chisl2 = MUL_ZZ_Z(b.numerator, mn1);
 	res.numerator = ADD_ZZ_Z(chisl1, chisl2);
-	res.denominator = zn;
-	return res;
+	res.denominator = zn;	
+	return RED_Q_Q(res);
 }
 
 vector<int> TRANS_Q_Z(Drob a)
@@ -97,7 +99,7 @@ Drob RED_Q_Q(Drob a)
 {
 	vector <int> one = { 1 };
 	vector <int> num = ABS_Z_N(a.numerator); // Получаем абсолютную величину числителя
-	vector <int> dem = ABS_Z_N(a.denominator);// Получаем абсолютную величину знаменателя
+	vector <int> dem = a.denominator;// Получаем абсолютную величину знаменателя
 	vector <int> NOD = GCF_NN_N(num, dem);//Находим НОД дроби
 	while (NOD != one) {//Пока НОД не станет равен единице
 

@@ -234,9 +234,9 @@ vector<Drob> NMR_P_P(vector<Drob> polynomial)
 
 vector<Drob> DIV_PP_P(vector<Drob> a, vector<Drob> b) 
 {
-	vector<Drob> old, jun, newe, result, priv;
-	vector<int> xk;
-	Drob k;
+	vector<Drob> old = { {vector <int>{ 0 }, vector <int> {1}} }, jun = old, newe = old, result = old, priv = old;
+	vector<int> xk = { 0 };
+	Drob k = { vector <int> {0} ,vector <int> {1} };
 	int i;
 	if (DEG_P_N(a) > DEG_P_N(b)) { //  определяем степень многочлена А и многочлена В.И чья степень больше, тот будет делимым, многочлен с меньшей степенью будет делителем
 		old = a;

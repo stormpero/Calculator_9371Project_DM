@@ -34,7 +34,7 @@ vector<int> ADD_1N_N(vector<int> input) // Добавление 1 к натуральному числу
 
 	// Проверяем если в функцию передан пустой вектор
 	if (input.empty())
-		throw "Empty input";
+		throw ((string)"Empty input \nIn File: " + __FILE__ +"\nIn line: "+ to_string(__LINE__));
 
 	// Сохраняем в память число 1,
 	// на которое необходимо увеличить входное значение
@@ -46,7 +46,7 @@ vector<int> ADD_1N_N(vector<int> input) // Добавление 1 к натуральному числу
 		// Если цифра не попадает в диапазон 0-9,
 		// кидаем исключение о неправильном вводе
 		if (input[i] < 0 || input[i] > 9)
-			throw "Input is not a valid number";
+			throw ((string)"Input is not a valid number \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 
 		res[i] = (input[i] + mem) % 10;
 		mem = (input[i] + mem) / 10;
@@ -297,6 +297,7 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) // Вычисление 
 			for (int i = a.size() - 1; i >= 0; i--) // Цикл вычитания
 			{
 				result[i] = a[i] - b[i];
+				
 				if (result[i] < 0)
 				{
 					result[i] += 10;
