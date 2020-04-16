@@ -57,9 +57,16 @@ Drob MUL_QQ_Q(Drob num1, Drob num2)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Табояков Иван      //
 
-Drob ADD_QQ_Q(Drob a, Drob b)
+Drob ADD_QQ_Q(Drob a, Drob b) 
 {
 	Drob res;
+	if ((a.denominator == b.denominator) && (POZ_Z_D(SUB_ZZ_Z(a.numerator, b.numerator)) == 0))
+	{
+		res.numerator.push_back(0);
+		res.numerator.push_back(0);
+		res.denominator.push_back(1);
+		return res;
+	}
 	vector<int> zn1 = a.denominator;
 	vector<int> zn2 = b.denominator;
 	vector <int> zn = LCM_NN_N(a.denominator, b.denominator);	
@@ -97,33 +104,42 @@ Drob TRANS_Z_Q(vector <int> a)
 
 Drob RED_Q_Q(Drob a)
 {
-	vector <int> one = { 1 };
-	vector <int> num = ABS_Z_N(a.numerator); // Получаем абсолютную величину числителя
-	vector <int> dem = a.denominator;// Получаем абсолютную величину знаменателя
-	vector <int> NOD = GCF_NN_N(num, dem);//Находим НОД дроби
-	while (NOD != one) {//Пока НОД не станет равен единице
+	if (POZ_Z_D(a.numerator) == 0);
+	return a;
+	vector<int> Nod = GCF_NN_N(ABS_Z_N(a.numerator), a.denominator);
+	a.denominator = DIV_NN_N(a.denominator, Nod);
+	Nod.insert(Nod.begin(), 0);
+	a.numerator = DIV_ZZ_Z(a.numerator, Nod);	
+	
+	return a;
 
-		num = DIV_ZZ_Z(num, NOD);// Получаем частное от деления числителя на НОД
-		dem = DIV_ZZ_Z(dem, NOD);// Получаем частное от деления знаменателя на НОД
-		NOD = GCF_NN_N(num, dem);//Находим НОД частных дроби
 
-	};
-	if (a.numerator[0] == 0) {
-		num.insert(num.begin(), 0);
-	}
-	else {
-		num.insert(num.begin(), 1);
-	}
-	if (a.denominator[0] == 0) {
-		dem.insert(dem.begin(), 0);
-	}
-	else {
-		dem.insert(dem.begin(), 1);
-	}
-	a.numerator = num;
-	a.denominator = dem;
-	return(a);//Возвращаем сокращенную дробь
+	//vector <int> one = { 1 };
+	//vector <int> num = ABS_Z_N(a.numerator); // Получаем абсолютную величину числителя
+	//vector <int> dem = a.denominator;// Получаем абсолютную величину знаменателя
+	//vector <int> NOD = GCF_NN_N(num, dem);//Находим НОД дроби
+	//while (NOD != one) {//Пока НОД не станет равен единице
 
+	//	num = DIV_ZZ_Z(num, NOD);// Получаем частное от деления числителя на НОД
+	//	dem = DIV_ZZ_Z(dem, NOD);// Получаем частное от деления знаменателя на НОД
+	//	NOD = GCF_NN_N(num, dem);//Находим НОД частных дроби
+
+	//};
+	//if (a.numerator[0] == 0) {
+	//	num.insert(num.begin(), 0);
+	//}
+	//else {
+	//	num.insert(num.begin(), 1);
+	//}
+	//if (a.denominator[0] == 0) {
+	//	dem.insert(dem.begin(), 0);
+	//}
+	//else {
+	//	dem.insert(dem.begin(), 1);
+	//}
+	//a.numerator = num;
+	//a.denominator = dem;
+	//return(a);//Возвращаем сокращенную дробь	
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

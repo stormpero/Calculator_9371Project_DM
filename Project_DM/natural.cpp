@@ -12,10 +12,14 @@ int NZER_N_B(vector<int> a_Z) // Проверка на ноль: если число не равно нулю, то 
 
 vector<int> GCF_NN_N(vector<int> a, vector<int> b) // НОД натуральных чисел
 {
+	if (!NZER_N_B(a)|| !NZER_N_B(b))
+		throw ((string)" 0 into NOD = Error \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
+	if (COM_NN_D(a, b) == 1) // 2 - num1 > num2, 0 - num1=num2, 1 - num2 > num1
+		swap(a, b);
 	while (NZER_N_B(b)) // Цикл пока b != 0
 	{
 		vector <int> c; //Вспомогательный вектор
-		c = MOD_NN_N(a, b); // Остаток от деления a на b
+		c = MOD_NN_N(a, b); // Остаток от деления a на b		
 		a = b;
 		b = c;
 	}
@@ -64,7 +68,7 @@ vector<int> MUL_NN_N(vector<int> first, vector<int> second) // Перемножение нату
 {
 	// Проверяем если в функцию передан пустой вектор
 	if (first.empty() || second.empty())
-		throw "Empty input";
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 
 	// Сделаем больший по длине вектор первым
 	if (first.size() < second.size())
@@ -93,7 +97,7 @@ vector<int> DIV_NN_N(vector<int> first, vector<int> second) // Кратное от делени
 {
 	// Проверяем если в функцию передан пустой вектор
 	if (first.empty() || second.empty())
-		throw "Empty input";
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 
 	vector<int> result{ 0 }, k{ 0 };
 	int i(0);
@@ -127,7 +131,7 @@ vector <int>MUL_Nk_N(vector<int> N, vector<int> k) // Умножить натуральное число
 {
 	// Проверяем если в функцию передан пустой вектор
 	if (N.empty() || k.empty())
-		throw "Empty input";
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 	//Проверяем чтобы вводимые данные были натуральными числами
 	//До тех пор пока i не равно k прибавлять в конец числа 0, что эквивалентно умножению на 10
 	for (vector <int>i = { 0 }; i != k; i = ADD_1N_N(i))
@@ -153,7 +157,8 @@ vector <int>MOD_NN_N(vector<int> first, vector<int> second) // Остаток от делени
 {
 	// Проверяем если в функцию передан пустой вектор
 	if (first.empty() || second.empty())
-		throw "Empty input";
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
+
 	if (COM_NN_D(first, second) == 1)
 		swap(first, second);
 	return SUB_NN_N(first, MUL_NN_N(second, DIV_NN_N(first, second)));
@@ -166,6 +171,9 @@ vector <int>MOD_NN_N(vector<int> first, vector<int> second) // Остаток от делени
 
 vector<int> SUB_NN_N(vector<int> a, vector<int> b) // Вычитание из первого большего натурального числа второго меньшего или равного
 {
+	if (a.empty() || b.empty())
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
+
 	if (COM_NN_D(a, b) == 2)      // 2 если a>b, 0 если a=b, 1 если a<b
 	{
 		vector <int> result(a.size());                         //Созданим вектор, который хранит резльтат вычитания, и назначим ему размерность большего числа

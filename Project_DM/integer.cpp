@@ -232,8 +232,7 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) //Вычитание цел
 		}
 	}
 
-	if (POZ_Z_D(vector_1) == 1 && POZ_Z_D(vector_2) == 2) {// если 1 -, 2 + складываем как натуральные добавляем 1 в начало
-		system("pause");
+	if (POZ_Z_D(vector_1) == 1 && POZ_Z_D(vector_2) == 2) {// если 1 -, 2 + складываем как натуральные добавляем 1 в начало		
 		vector_1.erase(vector_1.begin());
 		vector_2.erase(vector_2.begin());
 		result = ADD_NN_N(vector_1, vector_2);

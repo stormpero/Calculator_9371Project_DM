@@ -29,7 +29,7 @@ exc mist()
 }
 int main()
 {
-	
+	// ADD_QQ_Q ЕСЛИ ЧИСЛИЕТЛЬ 0
 	try
 	{
 		setlocale(LC_ALL,"ru");		
@@ -46,13 +46,13 @@ int main()
 		//output_integer(a3);
 
 		//a1 = input_natural();
-		//a2 = input_natural();
-		//vector<int> a3(DIV_NN_N(a1, a2));
+		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
+		//vector<int> a3(GCF_NN_N(a1, a2));
 		//output_natural(a3);
 		
-		Drob test, test1;
-		ADD_1N_N(a1);
+		Drob test, test1;		
 		test = input_rational();
+		cout << endl;
 		test1 = input_rational();
 		test1 = ADD_QQ_Q(test, test1);
 		output_rational(test1);
