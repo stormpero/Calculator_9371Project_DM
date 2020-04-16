@@ -16,48 +16,39 @@ void output_rational(Drob a); // Вывод дроби
 vector<Drob> input_polinom(); // Ввод многочлена
 void output_polinom(vector<Drob> polin); //Вывод многочлена
 
-vector<vector<int>> input_matrix(); // Ввод матрицы
-void output_matrix(vector<vector<int>> a); //Вывод матрицы
+vector<vector<vector<int>>> input_matrix(); // Ввод матрицы
+void output_matrix(vector<vector<vector<int>>> a); //Вывод матрицы
 
-//vector<vector<int>> MAT_Q_MUL1(vector<vector<int>> a, vector<vector<int>> b)
+//exc mist()
 //{
-//	vector<vector<int>> c(b.size()); // добавляем двумерный вектор,в который будет вноситься результат умножения
-//	int sizec = c.size();
-//	for (int i = 0; i < sizec; i++)
-//		for (int j = 0; j < sizec; j++)
-//			for (int h = 0; h < sizec; h++)
-//				c[j + sizec * i] = ADD_ZZ_Z(c[j + sizec * i], MUL_ZZ_Z(a[h + sizec * i], b[h * sizec + j]));
-//
-//	return(c);//возвращаем матрицу результата
+//	exc te;
+//	te.file = __FILE__,
+//	te.line_num = __LINE__,
+//	te.name_exc = "Empty input";
+//	return te;
 //}
-
-
-exc mist()
-{
-	exc te;
-	te.file = __FILE__,
-	te.line_num = __LINE__,
-	te.name_exc = "Empty input";
-	return te;
-}
 int main()
 {
+	
 	try
 	{
 		setlocale(LC_ALL,"ru");		
-		vector<int> a31;
-		vector<int> a32;
+		vector<int> a1;
+		vector<int> a2;
 		
-		//a31 = input_integer();
-		//a32 = input_integer();
-		//a31 = ADD_ZZ_Z(a31,a32);
-		//output_integer(a31);
+		//a1 = input_integer();	
+		//output_integer(a1);
+		//cout << endl;
+		//a2 = input_integer();
+		//output_integer(a2);
+		//cout << endl << endl;
+		//vector<int> a3(MUL_ZZ_Z(a1, a2));
+		//output_integer(a3);
 
-		throw mist();
-		a32 = input_natural();
-		a31 = input_natural();
-		a31 = ADD_NN_N(a31, a32);
-		output_natural(a31);
+		//a1 = input_natural();
+		//a2 = input_natural();
+		//vector<int> a3(SUB_NN_N(a1, a2));
+		//output_natural(a3);
 		
 		//Drob test;
 		//test = input_rational(); 
@@ -71,24 +62,24 @@ int main()
 		//test1 = MUL_PP_P(test1,test2);
 		//cout << endl;
 		//output_polinom(test1);
+		
+		vector <int> det;
+		vector<vector<vector<int>>> a,b;
+		a = input_matrix();
+		cout << endl;
+		det = MAT_Z_DET(a);
+		output_integer(det);
 
-
-		//vector<vector<int>> a,b;
-		//a = input_matrix();
-		//cout << endl;
 		//b = input_matrix();
 		//cout << endl;
-		//a = MAT_Q_MUL1(a, b);
+		//a = MAT_Z_SUM(a, b);
 		//output_matrix(a);
 	}
-	catch (exc s)
+	catch (const char* s)
 	{		
 		system("color C");
-		cout << "Error: " << s.name_exc << endl;
-		cout << "Фaйл: " << s.file << endl;
-		cout << "Строчка: " << s.line_num << endl;
+		cout << "Error: " << s << endl;
 		system("color 0");
-
 	}
 }
 
@@ -171,31 +162,34 @@ void output_polinom(vector<Drob> polin)
 	}
 	output_rational(polin[0]);
 }
-vector<vector<int>> input_matrix()
+vector<vector<vector<int>>> input_matrix()
 {
 	cout << "Введите размер матрицы:" << endl;
 	int sizemat;
 	cin >> sizemat;
-	vector<vector<int>> a(sizemat*sizemat);
+	vector<vector<vector<int>>> a(sizemat);
 	
-	for (int i = 0; i < a.size(); i++)	
-		a[i] = input_integer();
+	for (int i = 0; i < sizemat; i++)	
+	{
+		a[i].resize(sizemat);
+		for (int j = 0; j < a.size(); j++)
+			a[i][j] = input_integer();
+	}
 	
 	return a;
 }
-void output_matrix(vector<vector<int>> a)
+void output_matrix(vector<vector<vector<int>>> a)
 {
 	int sd = a.size();
 	int sizemat = sqrt(sd);
 	for (int i = 0; i < sd; i++)
 	{
-		if (i == sizemat)
+		for (int j = 0; j < a.size(); j++)
 		{
-			cout << endl;
-			sizemat += sizemat;
+			output_integer(a[i][j]);
+			cout << " ";
 		}
 			
-		output_integer(a[i]);
-		cout << " ";
+		cout << endl;
 	}
 }

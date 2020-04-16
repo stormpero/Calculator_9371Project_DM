@@ -2,14 +2,22 @@
 #include "Allfunc.h"
 #include "integer.h"
 
-////////////////////////// Жиренкин Артем   ///////////////////////////////////
+////////////////////////// Старосельский Александр  ///////////////////////////////////
 
-vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b);// Сложение матриц
+vector<int> MAT_Z_DET(vector<vector<vector<int>>> a); // Определитель матрицы
+
+int MAT_Z_RANK(vector<vector<vector<int>>> a); // Ранг матрицы
+
+//////////////////////////////////////////////////////////////////////////////
+
+////////////////////////// Жиренкин Артем  ///////////////////////////////////
+
+vector<vector<vector<int>>> MAT_Z_SUM(vector<vector<vector<int>>> a, vector<vector<vector<int>>> b);// Сложение матриц
 
 //////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////// Астахов Михаил  ///////////////////////////////////
 
-vector<vector<int>> MAT_Q_MUL(vector<vector<int>> a, vector<vector<int>> b);// Умножение матриц
+vector<vector<vector<int>>> MAT_Z_MUL(vector<vector<vector<int>>> a, vector<vector<vector<int>>> b);// Умножение матриц
 
 //////////////////////////////////////////////////////////////////////////////

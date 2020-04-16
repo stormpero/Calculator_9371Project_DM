@@ -222,12 +222,14 @@ int COM_NN_D(vector<int> num1, vector<int> num2) // 2 - num1 > num2, 0 - num1=nu
 	else if (num1.size() < num2.size())	return 1; // Если num1 < num2  - 1
 	else // Если num1 = num2  - 0
 	{
-		if (num1.front() > num2.front())
-			return 2;
-		else if (num1.front() < num2.front())
-			return 1;
-		else
-			return 0;
+		for (int i = 0; i < num1.size(); i++)
+		{
+			if (num1[i] > num2[i])
+				return 2;
+			else if (num1[i] < num2[i])
+				return 1;			
+		}		
+		return 0;
 	}
 }
 
@@ -349,7 +351,8 @@ vector<int> ADD_NN_N(vector<int> a, vector<int> b) // Сложение натуральных чисел
 	// Проверяем если в функцию передан пустой вектор
 	if (a.empty()|| b.empty())
 		throw "Empty input";
-
+	if (NZER_N_B(a) == 0) return b;
+	if (NZER_N_B(b) == 0) return a;
 	vector<int> c;
 
 	int one = 0; // Переменная для хранения нового разряда

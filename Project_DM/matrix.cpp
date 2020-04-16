@@ -1,15 +1,34 @@
 #include "matrix.h"
 
+///////////////////////////////////////////////////////////////////////////////////////////////     Старосельский Александр      //
+
+vector<int> MAT_Z_DET(vector<vector<vector<int>>> a) // 
+{
+	vector<int> ss;
+	return ss;
+}
+
+int MAT_Z_RANK(vector<vector<vector<int>>> a)
+{
+	int as = 1;
+	return as;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////////////////////////////////////     Жиренкин Артем      //
 
-vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b)
+vector<vector<vector<int>>> MAT_Z_SUM(vector<vector<vector<int>>> a, vector<vector<vector<int>>> b)
 {
-	vector<vector<int>> c(a.size());
-	for (int i = 0; i < c.size(); i++)
+	vector<vector<vector<int>>> c(b.size()); // добавляем трёхмерный вектор,в который будет вноситься результат умножения
+	int sizec = c.size();
+	for (int i = 0; i < sizec; i++)
 	{
-		c[i].resize((ADD_ZZ_Z(a[i], b[i])).size());
-		c[i] = ADD_ZZ_Z(a[i], b[i]);
-	};
+		c[i].resize(sizec);
+		for (int j = 0; j < sizec; j++)
+		{		
+			c[i][j] = ADD_ZZ_Z(a[i][j],b[i][j]);
+		}
+	}
 	return (c);
 }
 
@@ -18,28 +37,21 @@ vector<vector<int>> MAT_Q_SUM(vector<vector<int>> a, vector<vector<int>> b)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Астахов Михаил      //
 
-vector<vector<int>> MAT_Q_MUL(vector<vector<int>> a, vector<vector<int>> b)
+vector<vector<vector<int>>> MAT_Z_MUL(vector<vector<vector<int>>> a, vector<vector<vector<int>>> b)
 {
-	int k = 0, row;
-	row = b.size();
-	vector<vector<int>> c(row);//добавляем двумерный вектор,в который будет вноситься результат умножения
-
-	for (int i = 0; i < row; i++)
+	vector<vector<vector<int>>> c(b.size()); // добавляем трёхмерный вектор,в который будет вноситься результат умножения
+	int sizec = c.size();
+	for (int i = 0; i < sizec; i++)
 	{
-		c[i].resize(row);
-		for (int j = 0; j < row; j++)
+		c[i].resize(sizec);
+		for (int j = 0; j < sizec; j++)
 		{
-			for (int z = 0; z < row; z++)
-			{
-				k += a[i][z] * b[z][j];
-			}
-
-			c[i][j] = k; //присваеваем элементу результат
-			k = 0;
+			c[i][j].push_back(0);
+			for (int k = 0; k < sizec; k++)
+				c[i][j] = ADD_ZZ_Z(c[i][j], MUL_ZZ_Z(a[i][k], b[k][j]));
 		}
 	}
-
-	return(c);//возвращаем матрицу результата
+	return c;//возвращаем матрицу результата
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
