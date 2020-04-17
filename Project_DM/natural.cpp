@@ -2,12 +2,12 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Старосельский Александр     //
 
-int NZER_N_B(vector<int> a_Z) // Проверка на ноль: если число не равно нулю, то «да» иначе «нет» 
+bool NZER_N_B(vector<int> a_Z) // Проверка на ноль: если число не равно нулю, то «да» иначе «нет» 
 {
 	if ((a_Z[0] == 0) || ((a_Z[0] == 0) && a_Z[1] == 0))
-		return 0;
+		return false;
 	else
-		return 1;
+		return true;
 }
 
 vector<int> GCF_NN_N(vector<int> a, vector<int> b) // НОД натуральных чисел
@@ -73,13 +73,11 @@ vector<int> MUL_NN_N(vector<int> first, vector<int> second) // Перемножение нату
 	// Сделаем больший по длине вектор первым
 	if (first.size() < second.size())
 	{
-		vector<int> temp(first);
-		first = second;
-		second = temp;
+		swap(first, second);
 	}
 
 	vector<int> result{ 0 }, k{ 0 };
-	for (int i(second.size() - 1); i >= 0; --i, k = ADD_1N_N(k))
+	for (int i(second.size() - 1); i >= 0; i--, k = ADD_1N_N(k))
 	{
 		// Перемножаем первый вектор на каждую цифру второго
 		vector<int> addition(MUL_ND_N(first, second[i]));
@@ -102,7 +100,7 @@ vector<int> DIV_NN_N(vector<int> first, vector<int> second) // Кратное от делени
 	vector<int> result{ 0 }, k{ 0 };
 	int i(0);
 	// Пока первое число >= второго
-	while (COM_NN_D(first, second) == 2 || !COM_NN_D(first, second))
+	while (COM_NN_D(first, second) == 2 || COM_NN_D(first, second) == 0)
 	{
 		// Вычисляем первую цифру деления first на second
 		// умноженную на 10 в степени ее позиции
@@ -141,6 +139,9 @@ vector <int>MUL_Nk_N(vector<int> N, vector<int> k) // Умножить натуральное число
 
 vector <int>SUB_NDN_N(vector<int> a, vector<int> b, int k) // Вычитание из натурального другого натурального, умноженного на цифру для случая с неотрицательным результатом
 {
+	// Проверяем если в функцию передан пустой вектор
+	if (a.empty() || b.empty())
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 	vector<int> bk = MUL_ND_N(b, k);// save result of b * k (Для того, чтобы не считать его 2 раза)
 	vector<int> ak = MUL_ND_N(a, k);
 	short abk = COM_NN_D(a, bk);
@@ -150,7 +151,7 @@ vector <int>SUB_NDN_N(vector<int> a, vector<int> b, int k) // Вычитание из натур
 		return SUB_NN_N(a, bk);
 	else if (bak == 2 || bak == 0)// Если b > ak или b = ak, result = b - ak
 		return SUB_NN_N(b, ak);
-	else throw "Wrong input"; // Инача
+	else throw ((string)"Wrong input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__)); // Инача
 }
 
 vector <int>MOD_NN_N(vector<int> first, vector<int> second) // Остаток от деления большего натурального числа на меньшее или равное натуральное с остатком(делитель отличен от нуля)
@@ -161,6 +162,7 @@ vector <int>MOD_NN_N(vector<int> first, vector<int> second) // Остаток от делени
 
 	if (COM_NN_D(first, second) == 1)
 		swap(first, second);
+
 	return SUB_NN_N(first, MUL_NN_N(second, DIV_NN_N(first, second)));
 }
 
@@ -217,6 +219,8 @@ vector<int> SUB_NN_N(vector<int> a, vector<int> b) // Вычитание из первого больш
 		}
 		return result;   // Возвращаемое значение - результат вычитания двух натуральных чисел
 	}
+
+	return {}; // Эта строчка ни на что не влияет, прост чтоб убрать предпруждение компилятора
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -281,53 +285,111 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) // Вычисление 
 	if (vector_1.empty() || vector_2.empty()) //Проверка на пустой
 		throw "Empty input";
 
+	vector <int> result;
+
 	if (COM_NN_D(vector_1, vector_2) == 1) 
 	{ //Если 1й вектор < 2го
-		vector<int> number = { 0 };
-		return number;
+		result.resize(1);
+		result[0] = 0;
+		return result;
 	}
 
 	if (COM_NN_D(vector_1, vector_2) == 0) 
 	{ //Если векторы равны
-		vector<int> number = { 1 };
-		return number;
+		result.resize(1);
+		result[0] = 1;
+		return result;
 	}
 
-	if (COM_NN_D(vector_1, vector_2) == 2) 
-	{      //Если 2й больше 1го
+	//if (COM_NN_D(vector_1, vector_2) == 2) 
+	//{      //Если 2й больше 1го
 
-		vector<int> number = { 0 };               //это целая часть числа при делении 2го на 1е
+	//	vector<int> number = { 0 };               //это целая часть числа при делении 2го на 1е
 
-		while (COM_NN_D(vector_1, vector_2) == 2) { //Далее идет подсчет целого и дополненная функция Макса, так как иначе нихрена не получалось // до $$$$$
-			vector <int> a = vector_1, b = vector_2;
-			vector <int> result(a.size());                         //Созданим вектор, который хранит резльтат вычитания, и назначим ему размерность большего числа
-			while (a.size() != b.size())  b.insert(b.begin(), 0); // Если вектор b меньше по размерности, то добавим в его начало нули
-			for (int i = a.size() - 1; i >= 0; i--) // Цикл вычитания
-			{
-				result[i] = a[i] - b[i];
-				
-				if (result[i] < 0)
-				{
-					result[i] += 10;
-					a[i - 1]--;
-				}
-			}
-			while (result[0] == 0) // Если после вычитания в начале вектора остаютя нули, то их  нужно убрать
-				result.erase(result.begin());
+	//	while (COM_NN_D(vector_1, vector_2) == 2) { //Далее идет подсчет целого и дополненная функция Макса, так как иначе нихрена не получалось // до $$$$$
+	//		vector <int> a = vector_1, b = vector_2;
+	//		vector <int> result(a.size());                         //Созданим вектор, который хранит резльтат вычитания, и назначим ему размерность большего числа
+	//		while (a.size() != b.size())  b.insert(b.begin(), 0); // Если вектор b меньше по размерности, то добавим в его начало нули
+	//		for (int i = a.size() - 1; i >= 0; i--) // Цикл вычитания
+	//		{
+	//			result[i] = a[i] - b[i];
+	//			
+	//			if (result[i] < 0)
+	//			{
+	//				result[i] += 10;
+	//				a[i - 1]--;
+	//			}
+	//		}
+	//		while (result[0] == 0) // Если после вычитания в начале вектора остаютя нули, то их  нужно убрать
+	//			result.erase(result.begin());
 
-			while (b[0] == 0) // А вот тут дополнение: Если после вычетания в начале вектора остаютя нули, то их  нужно убрать 
-				b.erase(b.begin());
+	//		while (b[0] == 0) // А вот тут дополнение: Если после вычетания в начале вектора остаютя нули, то их  нужно убрать 
+	//			b.erase(b.begin());
 
-			number = ADD_1N_N(number); // увеличиваем целое
-			vector_1 = result;
+	//		number = ADD_1N_N(number); // увеличиваем целое
+	//		vector_1 = result;
+	//	}
+	//	if (COM_NN_D(vector_1, vector_2) == 0) // если делятся нацело, то увеличиваем вектор еще на 1цу
+	//		number = ADD_1N_N(number);
+
+	//	for (int i = 1; i < number.size(); i++) //Так как мы считаем до 1й значащей цифры то остальное заменяем нулями
+	//		number[i] = 0;
+
+	//	return number;
+	//}
+
+
+	if (vector_1[0] > vector_2[0])
+	{
+		result.resize(vector_1.size() - vector_2.size() + 1);
+		result[0] = vector_1[0] / vector_2[0];
+		return result;
+
+	}
+	else if (vector_1[0] < vector_2[0])
+	{
+		result.resize(vector_1.size() - vector_2.size());
+		/*vector<int> temp;
+		int i = 0;
+		for (; i < vector_2.size() + 1; i++)
+		{
+			temp.push_back(vector_1[i]);
+		}*/
+
+		result[0] = (vector_1[0] * 10 + vector_1[1]) / vector_2[0] - 1;
+		return result;
+	}
+	else
+	{
+		if (vector_1.size() == vector_2.size())
+		{
+			result.resize(1);
+			result[0] = vector_1[0] / vector_2[0];
+			return result;
 		}
-		if (COM_NN_D(vector_1, vector_2) == 0) // если делятся нацело, то увеличиваем вектор еще на 1цу
-			number = ADD_1N_N(number);
+		else 
+		{
+			for (int i = 1; i < vector_2.size(); i++)
+			{
+				if (vector_1[i] > vector_2[i])
+				{
+					result.resize(vector_1.size() - vector_2.size() + 1);
+					result[0] = 1;
+					return result;
+				}
+				else if (vector_1[i] < vector_2[i])
+				{
+					result.resize(vector_1.size() - vector_2.size());
+					result[0] = 9;
+					return result;
+				}
+				// Случай когда векторы равны рассматривается в начале функции
+			}
 
-		for (int i = 1; i < number.size(); i++) //Так как мы считаем до 1й значащей цифры то остальное заменяем нулями
-			number[i] = 0;
-
-		return number;
+			result.resize(vector_1.size() - vector_2.size() + 1);
+			result[0] = 1;
+			return result;
+		}
 	}
 }
 

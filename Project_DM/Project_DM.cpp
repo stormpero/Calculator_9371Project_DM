@@ -52,6 +52,7 @@ int main()
 		//
 		//Drob test, test1;		
 		//test = input_rational();
+
 		//cout << endl;
 		//test1 = input_rational();
 		//test1 = ADD_QQ_Q(test, test1);
