@@ -162,12 +162,12 @@ vector<int> MUL_ND_N(vector<int> entry, int number) {
 		multiplication = number * entry[i];   // произведение цифры и разряда
 
 		if (multiplication + digit >= 10) {
-			entry[i] = (multiplication % 10) + digit;
-			digit = multiplication / 10;
+			entry[i] = (multiplication + digit) % 10;
+			digit = (multiplication + digit) / 10;
 		}
 		else
 		{
-			entry[i] = (multiplication % 10) + digit;
+			entry[i] = (multiplication + digit) % 10;
 			digit = 0;
 		}
 	}
