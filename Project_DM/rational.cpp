@@ -60,7 +60,7 @@ Drob MUL_QQ_Q(Drob num1, Drob num2)
 Drob ADD_QQ_Q(Drob a, Drob b) 
 {
 	Drob res;
-	if ((a.denominator == b.denominator) && (POZ_Z_D(SUB_ZZ_Z(a.numerator, b.numerator)) == 0))
+	if ((a.denominator == b.denominator) && (POZ_Z_D(ADD_ZZ_Z(a.numerator, b.numerator)) == 0))
 	{
 		res.numerator.push_back(0);
 		res.numerator.push_back(0);
@@ -104,8 +104,8 @@ Drob TRANS_Z_Q(vector <int> a)
 
 Drob RED_Q_Q(Drob a)
 {
-	if (POZ_Z_D(a.numerator) == 0);
-	return a;
+	if (POZ_Z_D(a.numerator) == 0)
+		return a;
 	vector<int> Nod = GCF_NN_N(ABS_Z_N(a.numerator), a.denominator);
 	a.denominator = DIV_NN_N(a.denominator, Nod);
 	Nod.insert(Nod.begin(), 0);
