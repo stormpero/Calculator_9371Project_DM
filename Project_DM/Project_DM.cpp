@@ -42,29 +42,29 @@ int main()
 		//a2 = input_integer();
 		//output_integer(a2);
 		//cout << endl << endl;
-		//vector<int> a3(MUL_ZZ_Z(a1, a2));
+		//vector<int> a3(SUB_ZZ_Z(a1, a2));
 		//output_integer(a3);
 
 		//a1 = input_natural();
 		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
 		//vector<int> a3(GCF_NN_N(a1, a2));
 		//output_natural(a3);
-		
-		Drob test, test1;		
-		test = input_rational();
-		cout << endl;
-		test1 = input_rational();
-		test1 = ADD_QQ_Q(test, test1);
-		output_rational(test1);
+		//
+		//Drob test, test1;		
+		//test = input_rational();
+		//cout << endl;
+		//test1 = input_rational();
+		//test1 = ADD_QQ_Q(test, test1);
+		//output_rational(test1);
 
-		//vector <Drob> test1;
-		//vector <Drob> test2;
-		//test1 = input_polinom();
-		//cout << endl;
-		//test2 = input_polinom();
-		//test1 = DIV_PP_P(test1,test2);
-		//cout << endl;
-		//output_polinom(test1);
+		vector <Drob> test1;
+		vector <Drob> test2;
+		test1 = input_polinom();
+		cout << endl;
+		test2 = input_polinom();
+		test1 = ADD_PP_P(test1,test2);
+		cout << endl;
+		output_polinom(test1);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;

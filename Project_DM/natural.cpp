@@ -363,7 +363,7 @@ vector<int> ADD_NN_N(vector<int> a, vector<int> b) // Сложение натуральных чисел
 	if (NZER_N_B(a) == 0) return b;
 	if (NZER_N_B(b) == 0) return a;
 	vector<int> c;
-
+	
 	int one = 0; // Переменная для хранения нового разряда
 	if (COM_NN_D(a, b) == 2)      // 2 если a>b, 0 если a=b, 1 если a<b
 	{
