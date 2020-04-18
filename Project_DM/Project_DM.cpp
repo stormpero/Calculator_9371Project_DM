@@ -47,14 +47,14 @@ int main()
 		//output_natural(a2);
 		////
 
-		vector<int> a1;
-		vector<int> a2;
-		a1 = input_natural();
-		a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
-		/*int k;
-		cin >> k;	*/	
-		vector<int> a3(DIV_NN_Dk(a1,a2));
-		output_natural(a3);
+		//vector<int> a1;
+		//vector<int> a2;
+		//a1 = input_natural();
+		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
+		///*int k;
+		//cin >> k;	*/	
+		//vector<int> a3(DIV_NN_Dk(a1,a2));
+		//output_natural(a3);
 
 		//
 		////
@@ -66,13 +66,13 @@ int main()
 		//output_rational(test2);
 	
 
-		//vector <Drob> p_number1(input_polinom());
+		vector <Drob> p_number1(input_polinom());
 		//vector <Drob> p_number2(input_polinom());	
-		//cout << endl;
-		////test2 = input_polinom();
-		//p_number2 = SUB_PP_P(p_number1, p_number2);
-		//cout << endl;
-		//output_polinom(p_number2);
+		cout << endl;
+		//test2 = input_polinom();
+		p_number1 = DER_P_P(p_number1);
+		cout << endl;
+		output_polinom(p_number1);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;
