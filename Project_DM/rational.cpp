@@ -29,9 +29,18 @@ int INT_Q_B(Drob a)
 Drob DIV_QQ_Q(Drob a, Drob b)
 {
 	Drob result;
-	result.numerator = MUL_ZZ_Z(a.numerator, b.denominator); // Умножим числитель дроби a на знаменатель дроби b
-	result.denominator = MUL_ZZ_Z(a.denominator, b.numerator); // Аналогично для знаменателя
-	result = RED_Q_Q(result); // Выполним сокращение дроби
+	if ((POZ_Z_D(b.numerator) == 0)|| (POZ_Z_D(b.numerator) == 0))		
+			throw ((string)"Error / zero \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
+
+	if (POZ_Z_D(b.numerator) == 1)	
+		b.denominator.insert(b.denominator.begin(), 1);	
+	else // if (POZ_Z_D(b.numerator) == 2)	
+		b.denominator.insert(b.denominator.begin(), 0);
+	
+	b.numerator = ABS_Z_N(b.numerator);
+	swap(b.numerator, b.denominator);
+		
+	result = RED_Q_Q(MUL_QQ_Q(a,b)); // Выполним сокращение дроби
 	return(result);
 }
 

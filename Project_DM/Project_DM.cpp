@@ -19,41 +19,31 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<vector<int>>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<vector<int>>> a); //Вывод матрицы
 
-exc mist()
-{
-	exc te;
-	te.file = __FILE__,
-	te.line_num = __LINE__,
-	te.name_exc = "Empty input";
-	return te;
-}
 int main()
-{
-	
+{	
 	try
 	{
 		setlocale(LC_ALL,"ru");		
 	
 		//
-		//a1 = input_integer();
-		//a2 = input_integer();	
+		//vector<int> a1(input_integer());
+		//vector<int> a2(input_integer());
 		//
 		//cout << endl << endl;
-		//vector<int> a3(SUB_ZZ_Z(a1, a2));
+		//vector<int> a3(DIV_ZZ_Z(a1, a2));
 		//output_integer(a3);
 
 		//a1 = input_natural();
 		//a2 = ADD_1N_N(a1);
 		//output_natural(a2);
-		////
-
+		////		
 		//vector<int> a1;
 		//vector<int> a2;
 		//a1 = input_natural();
 		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
 		///*int k;
 		//cin >> k;	*/	
-		//vector<int> a3(DIV_NN_Dk(a1,a2));
+		//vector<int> a3(DIV_NN_N(a1,a2));
 		//output_natural(a3);
 
 		//
@@ -62,15 +52,14 @@ int main()
 		//test1 = input_rational();
 		//cout << endl;
 		//test2 = input_rational();
-		//test2 = SUB_QQ_Q(test1, test2);
+		//test2 = DIV_QQ_Q(test1, test2);
 		//output_rational(test2);
 	
 
 		vector <Drob> p_number1(input_polinom());
-		//vector <Drob> p_number2(input_polinom());	
-		cout << endl;
-		//test2 = input_polinom();
-		p_number1 = DER_P_P(p_number1);
+		vector <Drob> p_number2(input_polinom());	
+		cout << endl;		
+		p_number1 = DIV_PP_P(p_number1, p_number2);
 		cout << endl;
 		output_polinom(p_number1);
 		
