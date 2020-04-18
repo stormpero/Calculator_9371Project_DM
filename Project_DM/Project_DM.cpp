@@ -29,43 +29,50 @@ exc mist()
 }
 int main()
 {
-	// ADD_QQ_Q ЕСЛИ ЧИСЛИЕТЛЬ 0
+	
 	try
 	{
 		setlocale(LC_ALL,"ru");		
-		vector<int> a1;
-		vector<int> a2;
-		
-		//a1 = input_integer();	
-		//output_integer(a1);
-		//cout << endl;
-		//a2 = input_integer();
-		//output_integer(a2);
+	
+		//
+		//a1 = input_integer();
+		//a2 = input_integer();	
+		//
 		//cout << endl << endl;
 		//vector<int> a3(SUB_ZZ_Z(a1, a2));
 		//output_integer(a3);
 
 		//a1 = input_natural();
-		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
-		//vector<int> a3(GCF_NN_N(a1, a2));
-		//output_natural(a3);
+		//a2 = ADD_1N_N(a1);
+		//output_natural(a2);
+		////
+
+		vector<int> a1;
+		vector<int> a2;
+		a1 = input_natural();
+		a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
+		/*int k;
+		cin >> k;	*/	
+		vector<int> a3(DIV_NN_Dk(a1,a2));
+		output_natural(a3);
+
 		//
-		//Drob test, test1;		
-		//test = input_rational();
-
-		//cout << endl;
+		////
+		//Drob test1, test2;		
 		//test1 = input_rational();
-		//test1 = ADD_QQ_Q(test, test1);
-		//output_rational(test1);
+		//cout << endl;
+		//test2 = input_rational();
+		//test2 = SUB_QQ_Q(test1, test2);
+		//output_rational(test2);
+	
 
-		vector <Drob> test1;
-		vector <Drob> test2;
-		test1 = input_polinom();
-		cout << endl;
-		test2 = input_polinom();
-		test1 = ADD_PP_P(test1,test2);
-		cout << endl;
-		output_polinom(test1);
+		//vector <Drob> p_number1(input_polinom());
+		//vector <Drob> p_number2(input_polinom());	
+		//cout << endl;
+		////test2 = input_polinom();
+		//p_number2 = SUB_PP_P(p_number1, p_number2);
+		//cout << endl;
+		//output_polinom(p_number2);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;

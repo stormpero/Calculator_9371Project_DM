@@ -36,7 +36,7 @@ vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec) // ОШИБКА
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Михаил Киришский     //
 
-vector<Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k)
+vector <Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k)
 {
 	vector<Drob> result(poly);
 
