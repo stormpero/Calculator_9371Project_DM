@@ -12,7 +12,7 @@ bool NZER_N_B(vector<int> a_Z) // Проверка на ноль: если число не равно нулю, то
 
 vector<int> GCF_NN_N(vector<int> a, vector<int> b) // НОД натуральных чисел
 {
-	if (!NZER_N_B(a)|| !NZER_N_B(b))
+	if (!NZER_N_B(a) || !NZER_N_B(b))
 		throw ((string)" 0 into NOD = Error \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 	if (COM_NN_D(a, b) == 1) // 2 - num1 > num2, 0 - num1=num2, 1 - num2 > num1
 		swap(a, b);
@@ -38,7 +38,7 @@ vector<int> ADD_1N_N(vector<int> input) // Добавление 1 к натуральному числу
 
 	// Проверяем если в функцию передан пустой вектор
 	if (input.empty())
-		throw ((string)"Empty input \nIn File: " + __FILE__ +"\nIn line: "+ to_string(__LINE__));
+		throw ((string)"Empty input \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 
 	// Сохраняем в память число 1,
 	// на которое необходимо увеличить входное значение
@@ -220,7 +220,6 @@ vector<int> SUB_NN_N(vector<int> a, vector<int> b) // Вычитание из первого больш
 		return result;   // Возвращаемое значение - результат вычитания двух натуральных чисел
 	}
 
-	return {}; // Эта строчка ни на что не влияет, прост чтоб убрать предпруждение компилятора
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -239,8 +238,8 @@ int COM_NN_D(vector<int> num1, vector<int> num2) // 2 - num1 > num2, 0 - num1=nu
 			if (num1[i] > num2[i])
 				return 2;
 			else if (num1[i] < num2[i])
-				return 1;			
-		}		
+				return 1;
+		}
 		return 0;
 	}
 }
@@ -287,110 +286,54 @@ vector<int> DIV_NN_Dk(vector<int> vector_1, vector<int> vector_2) // Вычисление 
 
 	vector <int> result;
 
-	if (COM_NN_D(vector_1, vector_2) == 1) 
+	if (COM_NN_D(vector_1, vector_2) == 1)
 	{ //Если 1й вектор < 2го
 		result.resize(1);
 		result[0] = 0;
 		return result;
 	}
 
-	if (COM_NN_D(vector_1, vector_2) == 0) 
+	if (COM_NN_D(vector_1, vector_2) == 0)
 	{ //Если векторы равны
 		result.resize(1);
 		result[0] = 1;
 		return result;
 	}
-
-	//if (COM_NN_D(vector_1, vector_2) == 2) 
-	//{      //Если 2й больше 1го
-
-	//	vector<int> number = { 0 };               //это целая часть числа при делении 2го на 1е
-
-	//	while (COM_NN_D(vector_1, vector_2) == 2) { //Далее идет подсчет целого и дополненная функция Макса, так как иначе нихрена не получалось // до $$$$$
-	//		vector <int> a = vector_1, b = vector_2;
-	//		vector <int> result(a.size());                         //Созданим вектор, который хранит резльтат вычитания, и назначим ему размерность большего числа
-	//		while (a.size() != b.size())  b.insert(b.begin(), 0); // Если вектор b меньше по размерности, то добавим в его начало нули
-	//		for (int i = a.size() - 1; i >= 0; i--) // Цикл вычитания
-	//		{
-	//			result[i] = a[i] - b[i];
-	//			
-	//			if (result[i] < 0)
-	//			{
-	//				result[i] += 10;
-	//				a[i - 1]--;
-	//			}
-	//		}
-	//		while (result[0] == 0) // Если после вычитания в начале вектора остаютя нули, то их  нужно убрать
-	//			result.erase(result.begin());
-
-	//		while (b[0] == 0) // А вот тут дополнение: Если после вычетания в начале вектора остаютя нули, то их  нужно убрать 
-	//			b.erase(b.begin());
-
-	//		number = ADD_1N_N(number); // увеличиваем целое
-	//		vector_1 = result;
-	//	}
-	//	if (COM_NN_D(vector_1, vector_2) == 0) // если делятся нацело, то увеличиваем вектор еще на 1цу
-	//		number = ADD_1N_N(number);
-
-	//	for (int i = 1; i < number.size(); i++) //Так как мы считаем до 1й значащей цифры то остальное заменяем нулями
-	//		number[i] = 0;
-
-	//	return number;
-	//}
-
-
-	if (vector_1[0] > vector_2[0])
+	bool check = true;
+	for (int i = 0; i < vector_2.size(); i++)
 	{
-		result.resize(vector_1.size() - vector_2.size() + 1);
-		result[0] = vector_1[0] / vector_2[0];
-		return result;
-
-	}
-	else if (vector_1[0] < vector_2[0])
-	{
-		result.resize(vector_1.size() - vector_2.size());
-		/*vector<int> temp;
-		int i = 0;
-		for (; i < vector_2.size() + 1; i++)
+		if (vector_1[i] > vector_2[i])
 		{
-			temp.push_back(vector_1[i]);
-		}*/
-
-		result[0] = (vector_1[0] * 10 + vector_1[1]) / vector_2[0] - 1;
-		return result;
-	}
-	else
-	{
-		if (vector_1.size() == vector_2.size())
-		{
-			result.resize(1);
-			result[0] = vector_1[0] / vector_2[0];
-			return result;
-		}
-		else 
-		{
-			for (int i = 1; i < vector_2.size(); i++)
-			{
-				if (vector_1[i] > vector_2[i])
-				{
-					result.resize(vector_1.size() - vector_2.size() + 1);
-					result[0] = 1;
-					return result;
-				}
-				else if (vector_1[i] < vector_2[i])
-				{
-					result.resize(vector_1.size() - vector_2.size());
-					result[0] = 9;
-					return result;
-				}
-				// Случай когда векторы равны рассматривается в начале функции
-			}
-
+			check = false;
 			result.resize(vector_1.size() - vector_2.size() + 1);
-			result[0] = 1;
-			return result;
+			break;
+		}
+		else if (vector_1[i] < vector_2[i])
+		{
+			check = false;
+			result.resize(vector_1.size() - vector_2.size());
+			break;
 		}
 	}
+	if (check)
+		result.resize(vector_1.size() - vector_2.size() + 1);
+	vector <int> temp;
+	int i = 0;
+	for (; i < vector_2.size(); i++)
+	{
+		temp.push_back(vector_1[i]);
+	}
+	if (COM_NN_D(vector_2, temp) == 2)
+		temp.push_back(vector_1[i]);
+	short k = 9;
+	vector <int> v2k = MUL_ND_N(vector_2, k);
+	while (COM_NN_D(v2k, temp) == 2)
+	{
+		k--;
+		v2k = MUL_ND_N(vector_2, k);
+	}
+	result[0] = k;
+	return result;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -420,12 +363,12 @@ vector<int> LCM_NN_N(vector<int> vector_1, vector<int> vector_2)
 vector<int> ADD_NN_N(vector<int> a, vector<int> b) // Сложение натуральных чисел
 {
 	// Проверяем если в функцию передан пустой вектор
-	if (a.empty()|| b.empty())
+	if (a.empty() || b.empty())
 		throw "Empty input";
-	if (NZER_N_B(a) == 0) return b;
-	if (NZER_N_B(b) == 0) return a;
+	if (!NZER_N_B(a)) return b;
+	if (!NZER_N_B(b)) return a;
 	vector<int> c;
-	
+
 	int one = 0; // Переменная для хранения нового разряда
 	if (COM_NN_D(a, b) == 2)      // 2 если a>b, 0 если a=b, 1 если a<b
 	{
@@ -433,7 +376,7 @@ vector<int> ADD_NN_N(vector<int> a, vector<int> b) // Сложение натуральных чисел
 		for (int i = 0; i < k; i++)
 			b.insert(b.begin(), 0); // Уравниваем число до одного кол-ва знаков
 	}
-	else  
+	else
 	{
 		int k = b.size() - a.size();
 		for (int i = 0; i < k; i++)
@@ -443,14 +386,14 @@ vector<int> ADD_NN_N(vector<int> a, vector<int> b) // Сложение натуральных чисел
 	{
 		if ((a[i] + b[i] + one) > 9) // Если сумма разрядов больше 9, записываем 1 в переменную 
 		{
-			c.insert(c.begin(),(a[i] + b[i] + one) % 10);
+			c.insert(c.begin(), (a[i] + b[i] + one) % 10);
 			one = 1;
 		}
 		else
 		{
-			c.insert(c.begin(),a[i] + b[i] + one);
+			c.insert(c.begin(), a[i] + b[i] + one);
 			one = 0;
-		}			   
+		}
 	}
 	if (one == 1) // Если осталась 1, то добавляем ещё один разряд
 		c.insert(c.begin(), 1);
