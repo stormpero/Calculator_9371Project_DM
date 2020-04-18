@@ -20,7 +20,7 @@ Drob SUB_QQ_Q(Drob f, Drob s)
 int INT_Q_B(Drob a)
 {
 	a = RED_Q_Q(a); //Выполним сокращение дроби
-	if (a.denominator[1] == 1)  // Проверим, является ли его первый элемент еденицей в знаменателе
+	if (a.denominator[0] == 1)  // Проверим, является ли его первый элемент еденицей в знаменателе
 		return 1; // Если да, то выведем еденицу
 	else
 		return 0; // Если нет, то ноль
@@ -83,7 +83,7 @@ Drob ADD_QQ_Q(Drob a, Drob b)
 
 vector<int> TRANS_Q_Z(Drob a)
 {
-	vector<int>r = a.numerator;
+	vector<int> r = a.numerator;
 	return r;
 }
 
@@ -96,8 +96,7 @@ vector<int> TRANS_Q_Z(Drob a)
 Drob TRANS_Z_Q(vector <int> a) 
 {
 	Drob p;	//Новая структура
-	p.numerator = a; // Присваиваем число к числителю
-	p.denominator[0] = 0;// Присваиваем 0 к знаменателю
+	p.numerator = a; // Присваиваем число к числителю	
 	p.denominator.push_back(1);  // Присваиваем 1 к знаменателю
 	return p; // Возвращаем структуру
 }
@@ -112,34 +111,6 @@ Drob RED_Q_Q(Drob a)
 	a.numerator = DIV_ZZ_Z(a.numerator, Nod);	
 	
 	return a;
-
-
-	//vector <int> one = { 1 };
-	//vector <int> num = ABS_Z_N(a.numerator); // Получаем абсолютную величину числителя
-	//vector <int> dem = a.denominator;// Получаем абсолютную величину знаменателя
-	//vector <int> NOD = GCF_NN_N(num, dem);//Находим НОД дроби
-	//while (NOD != one) {//Пока НОД не станет равен единице
-
-	//	num = DIV_ZZ_Z(num, NOD);// Получаем частное от деления числителя на НОД
-	//	dem = DIV_ZZ_Z(dem, NOD);// Получаем частное от деления знаменателя на НОД
-	//	NOD = GCF_NN_N(num, dem);//Находим НОД частных дроби
-
-	//};
-	//if (a.numerator[0] == 0) {
-	//	num.insert(num.begin(), 0);
-	//}
-	//else {
-	//	num.insert(num.begin(), 1);
-	//}
-	//if (a.denominator[0] == 0) {
-	//	dem.insert(dem.begin(), 0);
-	//}
-	//else {
-	//	dem.insert(dem.begin(), 1);
-	//}
-	//a.numerator = num;
-	//a.denominator = dem;
-	//return(a);//Возвращаем сокращенную дробь	
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
