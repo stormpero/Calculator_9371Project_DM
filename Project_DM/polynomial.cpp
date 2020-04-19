@@ -198,15 +198,21 @@ vector<Drob> MUL_PQ_P(vector<Drob> polynomial, Drob fraction)
 vector<Drob> DER_P_P(vector<Drob> polynomial)
 {
 	Drob i;	//отвечает за степень (вид a/1)
+	i.numerator.push_back(0);
 	i.denominator.push_back(1);
-	for (int k = polynomial.size() - 1; k > 0; k--)
-	{
-		int size = k;
-		for (; size >= 0; size--)
-			i.numerator = ADD_1N_N(i.numerator); // Я тут пофиксил слегка. ДО этого было: ADD_1N_N(i.numerator)       что не совсем правильно
-		polynomial[k] = MUL_QQ_Q(polynomial[k], i);
-	}
 	polynomial.erase(polynomial.begin());//чистим свободный член на 0
+	for(int k = polynomial.size() - 1; k >= 0; k--)
+	{
+		for (int size = k; size > 0; size--)
+			i.numerator = ADD_1N_N(i.numerator);
+		i.numerator = ADD_1N_N(i.numerator);
+		i.numerator.insert(i.numerator.begin(), 0);
+		polynomial[k] = MUL_QQ_Q(polynomial[k], i);
+		i.numerator.resize(1);
+		i.denominator.resize(1);
+		i.numerator[0] = 0;
+		i.denominator[0] = 1;
+	}
 	return (polynomial);
 }
 

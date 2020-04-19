@@ -47,7 +47,7 @@ int main()
 
 		//a1 = input_natural();
 		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
-		//vector<int> a3(GCF_NN_N(a1, a2));
+		//vector<int> a3(MUL_NN_N(a1, a2));
 		//output_natural(a3);
 		//
 		//Drob test, test1;		
@@ -62,8 +62,8 @@ int main()
 		vector <Drob> test2;
 		test1 = input_polinom();
 		cout << endl;
-		test2 = input_polinom();
-		test1 = ADD_PP_P(test1,test2);
+		/*test2 = input_polinom();*/
+		test1 = DER_P_P(test1);
 		cout << endl;
 		output_polinom(test1);
 		
