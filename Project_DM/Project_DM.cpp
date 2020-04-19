@@ -58,14 +58,14 @@ int main()
 		//test1 = ADD_QQ_Q(test, test1);
 		//output_rational(test1);
 
-		vector <Drob> test1;
-		vector <Drob> test2;
-		test1 = input_polinom();
-		cout << endl;
-		/*test2 = input_polinom();*/
-		test1 = DER_P_P(test1);
-		cout << endl;
-		output_polinom(test1);
+		//vector <Drob> test1;
+		//vector <Drob> test2;
+		//test1 = input_polinom();
+		//cout << endl;
+		//test2 = input_polinom();
+		//test1 = DER_P_P(test1);
+		//cout << endl;
+		//output_polinom(test1);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;

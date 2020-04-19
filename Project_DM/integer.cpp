@@ -103,13 +103,10 @@ vector<int> ADD_ZZ_Z(vector<int> num1, vector<int> num2)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////     Игорь Темников      //
 
-vector<int> MUL_ND_N(vector<int> entry, int number) {
-
+vector<int> MUL_ND_N(vector<int> entry, int number) 
+{
 	if (entry.empty())
 		throw "Error:Empty entry";
-
-	if (number < 0 || number > 9)       //Вводи нормальную цифру мамкин хацкер!!!!!
-		throw "Entered wrong";
 
 	short digit = 0;// переменная отвечающая за увеличение следующего разряда
 
@@ -118,7 +115,8 @@ vector<int> MUL_ND_N(vector<int> entry, int number) {
 		short multiplication;
 		multiplication = number * entry[i];   // произведение цифры и разряда
 
-		if (multiplication + digit >= 10) {
+		if (multiplication + digit >= 10) 
+		{
 			entry[i] = (multiplication + digit) % 10;
 			digit = (multiplication + digit) / 10;
 		}
@@ -198,7 +196,7 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) //Вычитание цел
 	}
 }
 
-vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N) //ПОЧИНИНО
+vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N)
 {
 	if ((POZ_Z_D(vector_2_N) == 0))// если Делитель = 0 ошибка
 		throw ("Divider 0!");
@@ -237,9 +235,7 @@ vector<int> MUL_ZM_Z(vector<int> input)
 
 vector<int> TRANS_Z_N(vector<int> a)
 {
-	reverse(a.begin(), a.end());
-	a.pop_back();
-	reverse(a.begin(), a.end());
+	a.erase(a.begin());	
 	return (a);
 }
 
