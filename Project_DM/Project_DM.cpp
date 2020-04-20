@@ -50,22 +50,22 @@ int main()
 		//vector<int> a3(MUL_NN_N(a1, a2));
 		//output_natural(a3);
 		//
-		//Drob test, test1;		
-		//test = input_rational();
+		Drob test, test1;		
+		test = input_rational();
 
-		//cout << endl;
-		//test1 = input_rational();
-		//test1 = ADD_QQ_Q(test, test1);
-		//output_rational(test1);
+		cout << endl;
+		test1 = input_rational();
+		test1 = DIV_QQ_Q(test, test1);
+		output_rational(test1);
 
-		vector <Drob> test1;
+		/*vector <Drob> test1;
 		vector <Drob> test2;
 		test1 = input_polinom();
 		cout << endl;
 		test2 = input_polinom();
 		test1 = DIV_PP_P(test1, test2);
 		cout << endl;
-		output_polinom(test1);
+		output_polinom(test1);*/
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;
@@ -146,6 +146,12 @@ Drob input_rational() // Ввод числа
 	if (s.length() == 1 && s[0] == '0')
 	{
 		number.numerator.resize(2);
+		cout << "Введите знаменатель:" << endl;
+		cin >> s;
+		number.denominator.resize(s.length());
+		for (int i = 0; i < number.denominator.size(); i++)
+			number.denominator[i] = s[i] - '0';
+		return number;
 	}
 	else
 		number.numerator.resize(s.length());

@@ -28,9 +28,14 @@ int INT_Q_B(Drob a)
 
 Drob DIV_QQ_Q(Drob a, Drob b)
 {
+	Drob null;
+	null.numerator = { 0, 0 };
+	null.denominator = { 1 };
 	Drob result;
 	if (POZ_Z_D(b.numerator) == 0)
 		throw "Zero devider";
+	if (POZ_Z_D(a.numerator) == 0)
+		return null;
 	result.numerator = MUL_ZZ_Z(a.numerator, TRANS_N_Z(b.denominator)); // Умножим числитель дроби a на знаменатель дроби b
 	result.denominator = MUL_NN_N(a.denominator, TRANS_Z_N(b.numerator)); // Аналогично для знаменателя
 	if (POZ_Z_D(result.numerator) == 0)
