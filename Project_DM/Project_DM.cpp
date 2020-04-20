@@ -58,14 +58,14 @@ int main()
 		//test1 = ADD_QQ_Q(test, test1);
 		//output_rational(test1);
 
-		//vector <Drob> test1;
-		//vector <Drob> test2;
-		//test1 = input_polinom();
-		//cout << endl;
-		//test2 = input_polinom();
-		//test1 = DER_P_P(test1);
-		//cout << endl;
-		//output_polinom(test1);
+		vector <Drob> test1;
+		vector <Drob> test2;
+		test1 = input_polinom();
+		cout << endl;
+		test2 = input_polinom();
+		test1 = DIV_PP_P(test1, test2);
+		cout << endl;
+		output_polinom(test1);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;
@@ -103,16 +103,35 @@ void output_natural(vector <int> test) // Вывод числа
 vector<int> input_integer() // Ввод числа 
 {
 	string s; cin >> s;
-	vector <int> test(s.length());
+	vector <int> test;
+	if (s.length() == 1 && s[0] == '0')
+	{
+		test.resize(2);
+		return test;
+	}
+	else 
+		test.resize(s.length());
+
+	if (s[0] == '-') 
+		test[0] = 1;
+	else 
+	{ 
+		test[0] = s[0] - '0';  
+		test.insert(test.begin(), 0); 
+	}
+
 	for (int i = 1; i < test.size(); i++)
 		test[i] = s[i] - '0';
-	if (s[0] == '-') test[0] = 1;
-	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
 	return test;
 }
 void output_integer(vector <int> test) // Вывод числа 
 {
-	if (test[0] == 1) cout << "-";
+	if (test.size() == 2 && test[0] == 0 && test[1] == 0)
+	{
+		cout << "0";
+		return;
+	}
+	else if (test[0] == 1) cout << "-";
 	for (int i = 1; i < test.size(); i++)
 		cout << test[i];
 }
@@ -123,7 +142,14 @@ Drob input_rational() // Ввод числа
 
 	cout << "Введите числитель:" << endl;
 	string s; cin >> s;
-	number.numerator.resize(s.length());
+
+	if (s.length() == 1 && s[0] == '0')
+	{
+		number.numerator.resize(2);
+	}
+	else
+		number.numerator.resize(s.length());
+
 	for (int i = 1; i < number.numerator.size(); i++)
 		number.numerator[i] = s[i] - '0';
 	if (s[0] == '-') number.numerator[0] = 1;
@@ -139,9 +165,14 @@ Drob input_rational() // Ввод числа
 }
 void output_rational(Drob a)
 {
-	if (a.numerator[0] == 1) cout << "-";
-	for (int i = 1; i < a.numerator.size(); i++)
-		cout << a.numerator[i];
+	if (a.numerator.size() == 2 && a.numerator[0] == 0 && a.numerator[1] == 0)
+		cout << "0";
+	else if (a.numerator[0] == 1) cout << "-";
+	if (!(a.numerator.size() == 2 && a.numerator[0] == 0 && a.numerator[1] == 0))
+	{
+		for (int i = 1; i < a.numerator.size(); i++)
+			cout << a.numerator[i];
+	}
 	cout<<"\\";
 	for (int i = 0; i < a.denominator.size(); i++)
 		cout << a.denominator[i];

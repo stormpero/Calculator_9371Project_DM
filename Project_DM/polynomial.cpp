@@ -9,17 +9,16 @@ int DEG_P_N(vector <Drob> a)
 
 vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec) // ОШИБКА
 {	
-	vector <Drob> null = { { vector<int> {0}, vector<int> {1} } };
-	vector<Drob> num1 = fir;
-	vector<Drob> num2 = sec;
+	vector <Drob> temp;
 	if (DEG_P_N(sec) > DEG_P_N(fir))
-		swap(num1, num2);
-	else if (DEG_P_N(fir) == DEG_P_N(sec)) 
-	{
-		Drob drop = SUB_QQ_Q(fir[DEG_P_N(fir)], sec[DEG_P_N(sec)]);
-		if (drop.numerator[0] == 1) 
-			swap(num1, num2);
-	}
+		swap(fir, sec);
+	temp = MOD_PP_P(fir, sec);
+	//else if (DEG_P_N(fir) == DEG_P_N(sec)) 
+	//{
+	//	Drob drop = SUB_QQ_Q(fir[DEG_P_N(fir)], sec[DEG_P_N(sec)]);
+	//	if (drop.numerator[0] == 1) 
+	//		swap(num1, num2);
+	//}
 	//while (num2 != null) // Цикл пока b != 0
 	//{
 	//	vector <Drob> c; //Вспомогательный вектор
@@ -27,7 +26,14 @@ vector<Drob> GCF_PP_P(vector<Drob> fir, vector<Drob> sec) // ОШИБКА
 	//	num1 = num2;
 	//	num2 = c;
 	//}
-	return num1;	
+
+	while (temp.size() != 1 || POZ_Z_D(temp[0].numerator) != 0)
+	{
+		fir = sec;
+		sec = temp;
+		temp = MOD_PP_P(fir, sec);
+	}
+	return sec;	
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,8 +50,8 @@ vector <Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k)
 	{
 		// Сдвигаем коэффициенты налево k раз,
 		// а свободное пространство заполняем нулями
-		Drob zero{ vector<int> {0}, vector<int> {1} };
-		result.push_back(zero);
+		Drob zero{ vector<int> {0, 0}, vector<int> {1} };
+		result.insert(result.begin(), zero);
 	}
 
 	return result;
@@ -56,16 +62,16 @@ void FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
 	if (poly.empty())
 		throw "Empty polynomial";
 
-	// Приравниваем НОКу знаменатель первого коэффициента многочлена
 	// и НОДу числитель первого коэффициента (в виде натурального числа)
-	LCM_de = poly[0].denominator;
+	// Приравниваем НОКу знаменатель первого коэффициента многочлена
 	GCD_num = ABS_Z_N(poly[0].numerator);
+	LCM_de = poly[0].denominator;
 
-	// И последовательно вычисляем его НОК и НОД с каждым следующим коэфициентом
+	// И последовательно вычисляем его НОД и НОК с каждым следующим коэфициентом
 	for (int i(1); i < poly.size(); ++i)
 	{
-		LCM_de = LCM_NN_N(LCM_de, poly[i].denominator);
 		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[i].numerator));
+		LCM_de = LCM_NN_N(LCM_de, poly[i].denominator);
 	}
 
 	// Переводим НОД обратно в целое число
@@ -79,7 +85,7 @@ vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second)
 		throw "Empty input";
 
 	// Создаем нулевую дробь
-	Drob null{ vector<int> {0}, vector<int> {1} };
+	Drob null{ vector<int> {0, 0}, vector<int> {1} };
 	// И рассчитываем разность размеров многочленов
 	int sizedif(first.size() - second.size());
 
@@ -94,9 +100,12 @@ vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second)
 	// Последовательно считаем разность
 	// соответствующих коэффициентов многочленов
 	vector<Drob> result;
-	for (int i(0); i < first.size(); ++i)
+	for (int i(0); i < first.size(); i++)
 		result.push_back(SUB_QQ_Q(first[i], second[i]));
-
+	for (int i = result.size() - 1; (POZ_Z_D(result[i].numerator) == 0) && i != 0; i--)
+	{
+		result.pop_back();
+	}
 	return result;
 }
 
@@ -115,7 +124,7 @@ Drob LED_P_Q(vector <Drob> polynominal)
 {
 	if (polynominal.empty())
 		throw "Wrong input";
-	return polynominal[polynominal.size() - 1]; //возвращаем самую первую структуру
+	return polynominal[polynominal.size() - 1]; //возвращаем последнюю структуру
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,7 +137,7 @@ vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b)
 {
 
 	// Создаем нулевую дробь
-	Drob null{ vector<int> {0}, vector<int> {1} };
+	Drob null{ vector<int> {0, 0}, vector<int> {1} };
 	// И рассчитываем разность размеров многочленов
 	int sizedif(a.size() - b.size());
 
@@ -143,7 +152,7 @@ vector<Drob> ADD_PP_P(vector<Drob> a, vector<Drob> b)
 	// Последовательно считаем сумму
 	// соответствующих коэффициентов многочленов
 	vector<Drob> result;
-	for (int i(0); i < a.size(); ++i)
+	for (int i(0); i < a.size(); i++)
 		result.push_back(ADD_QQ_Q(a[i], b[i]));
 
 	return result;
@@ -175,7 +184,7 @@ vector <Drob> MUL_PP_P(vector <Drob> f, vector <Drob> s)
 	int kk = 1;
 	for (vector <int> k = { 1 }; k != ssize; k = ADD_1N_N(k)) // Умножаем первый многочлен на x^k второго многочлена и прибавляем получившиеся к результату до тех пор пока многоочлен не кончится
 	{		
-		if (!(s[kk].numerator[0] == 0 && s[kk].numerator.size() == 1)) // это условие чисто ради оптимизации, чтобы прога не перемножала напрасно один многочлен на x^k, когда коэффициент перед x^k равен нулю
+		if (POZ_Z_D(s[kk].numerator) != 0) // это условие чисто ради оптимизации, чтобы прога не перемножала напрасно один многочлен на x^k, когда коэффициент перед x^k равен нулю
 			result = ADD_PP_P(result, MUL_PQ_P(MUL_Pxk_P(f, k), s[kk]));
 		kk++;
 	}
@@ -240,40 +249,67 @@ vector<Drob> NMR_P_P(vector<Drob> polynomial)
 
 vector<Drob> DIV_PP_P(vector<Drob> a, vector<Drob> b) 
 {
-	vector<Drob> old = { {vector <int>{ 0 }, vector <int> {1}} }, jun = old, newe = old, result = old, priv = old;
-	vector<int> xk = { 0 };
-	Drob k = { vector <int> {0} ,vector <int> {1} };
-	int i;
-	if (DEG_P_N(a) > DEG_P_N(b)) { //  определяем степень многочлена А и многочлена В.И чья степень больше, тот будет делимым, многочлен с меньшей степенью будет делителем
-		old = a;
-		jun = b;
+	//vector<Drob> old = { {vector <int>{ 0 }, vector <int> {1}} }, jun = old, newe = old, result = old, priv = old;
+	//vector<int> xk = { 0 };
+	//Drob k = { vector <int> {0} ,vector <int> {1} };
+	//int i;
+	//if (DEG_P_N(a) > DEG_P_N(b)) { //  определяем степень многочлена А и многочлена В.И чья степень больше, тот будет делимым, многочлен с меньшей степенью будет делителем
+	//	old = a;
+	//	jun = b;
+	//}
+	//else
+	//{
+	//	old = b;
+	//	jun = a;
+	//};
+	//k = jun[jun.size() - 1];//старший коэффициент многочлена-делителя
+
+	//i = (old.size() - jun.size());//размерность нашего частного
+	//while (DEG_P_N(old) >= DEG_P_N(jun))//пока степень большего многочлена больше степени меньшего
+	//{
+	//	xk[0] = (old.size() - jun.size());//находим k для x^k
+	//	newe = MUL_Pxk_P(jun, xk);//умножаем младший многочлен на x^k
+	//	result = MUL_PQ_P(newe, old[old.size() - 1]);//умножаем полученный вектор на старший коэффициент большего многочлена
+	//	priv[i] = old[old.size() - 1];//заносим старший коэффициент частного в вектор
+	//	i--;
+	//	if ((((k.numerator[0] == 0 && k.denominator[0] == 0) || (k.numerator[0] == 1 && k.denominator[0] == 1)) && ((old[old.size() - 1].numerator[0] == 0 && old[old.size() - 1].denominator[0] == 0) || (old[old.size() - 1].numerator[0] == 1 && old[old.size() - 1].denominator[0] == 1))) || (((k.numerator[0] == 0 && k.denominator[0] == 1) || (k.numerator[0] == 1 && k.denominator[0] == 0)) && ((old[old.size() - 1].numerator[0] == 0 && old[old.size() - 1].denominator[0] == 1) || (old[old.size() - 1].numerator[0] == 1 && old[old.size() - 1].denominator[0] == 0))))//Условие проверяющее,нужно ли складывать или вычитать многочлены
+	//	{
+	//		old = SUB_PP_P(old, result);
+	//	}
+	//	else {
+	//		old = ADD_PP_P(old, result);
+	//	}
+	//	old.pop_back();
+	//};
+
+	/*return(priv);*/
+	if (DEG_P_N(b) > DEG_P_N(a))
+		swap(a, b);
+
+	Drob number;
+	vector <Drob> div_a_b;
+	div_a_b.resize(a.size() - b.size() + 1);
+	for (int i = 0; i < div_a_b.size(); i++)
+	{
+		div_a_b[i].numerator.push_back(0);
+		div_a_b[i].numerator.push_back(0);
+		div_a_b[i].denominator.push_back(1);
 	}
-	else
-	{
-		old = b;
-		jun = a;
-	};
-	k = jun[jun.size() - 1];//старший коэффициент многочлена-делителя
 
-	i = (old.size() - jun.size());//размерность нашего частного
-	while (DEG_P_N(old) >= DEG_P_N(jun))//пока степень большего многочлена больше степени меньшего
+	int i = 0;
+	while (DEG_P_N(a) >= DEG_P_N(b) && !(a.size() == 1 && POZ_Z_D(a[0].numerator) == 0))
 	{
-		xk[0] = (old.size() - jun.size());//находим k для x^k
-		newe = MUL_Pxk_P(jun, xk);//умножаем младший многочлен на x^k
-		result = MUL_PQ_P(newe, old[old.size() - 1]);//умножаем полученный вектор на старший коэффициент большего многочлена
-		priv[i] = old[old.size() - 1];//заносим старший коэффициент частного в вектор
-		i--;
-		if ((((k.numerator[0] == 0 && k.denominator[0] == 0) || (k.numerator[0] == 1 && k.denominator[0] == 1)) && ((old[old.size() - 1].numerator[0] == 0 && old[old.size() - 1].denominator[0] == 0) || (old[old.size() - 1].numerator[0] == 1 && old[old.size() - 1].denominator[0] == 1))) || (((k.numerator[0] == 0 && k.denominator[0] == 1) || (k.numerator[0] == 1 && k.denominator[0] == 0)) && ((old[old.size() - 1].numerator[0] == 0 && old[old.size() - 1].denominator[0] == 1) || (old[old.size() - 1].numerator[0] == 1 && old[old.size() - 1].denominator[0] == 0))))//Условие проверяющее,нужно ли складывать или вычитать многочлены
-		{
-			old = SUB_PP_P(old, result);
-		}
-		else {
-			old = ADD_PP_P(old, result);
-		}
-		old.pop_back();
-	};
+		number = DIV_QQ_Q(a[a.size() - 1], b[b.size() - 1]);
+		div_a_b[div_a_b.size() - 1 - i] = number;
+		vector <int> vect = { 0 };
 
-	return(priv);
+		for (int j = 0; j < div_a_b.size() - 1 - i; j++)
+			vect = ADD_1N_N(vect);
+
+		a = SUB_PP_P(a, MUL_PQ_P(MUL_Pxk_P(b, vect), number));
+		i++;
+	}
+	return div_a_b;
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
