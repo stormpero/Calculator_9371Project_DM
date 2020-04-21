@@ -19,50 +19,54 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<vector<int>>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<vector<int>>> a); //Вывод матрицы
 
+exc mist()
+{
+	exc te;
+	te.file = __FILE__,
+	te.line_num = __LINE__,
+	te.name_exc = "Empty input";
+	return te;
+}
 int main()
-{	
+{
+	// ADD_QQ_Q ЕСЛИ ЧИСЛИЕТЛЬ 0
 	try
 	{
 		setlocale(LC_ALL,"ru");		
-	
-		//
-		//vector<int> a1(input_integer());
-		//vector<int> a2(input_integer());
-		//
+		vector<int> a1;
+		vector<int> a2;
+		
+		//a1 = input_integer();	
+		//output_integer(a1);
+		//cout << endl;
+		//a2 = input_integer();
+		//output_integer(a2);
 		//cout << endl << endl;
-		//vector<int> a3(MOD_ZZ_Z(a1, a2));
+		//vector<int> a3(SUB_ZZ_Z(a1, a2));
 		//output_integer(a3);
 
 		//a1 = input_natural();
-		//a2 = ADD_1N_N(a1);
-		//output_natural(a2);
-		////		
-		vector<int> a1;
-		vector<int> a2;
-		a1 = input_natural();
-		a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
-		/*int k;
-		cin >> k;	*/	
-		vector<int> a3(LCM_NN_N(a1,a2));
-		output_natural(a3);
-
+		//a2 = input_natural(); //DIV_NN_N MOD_NN_N GCF_NN_N
+		//vector<int> a3(MUL_NN_N(a1, a2));
+		//output_natural(a3);
 		//
-		////
-		//Drob test1, test2;		
-		//test1 = input_rational();
-		//cout << endl;
-		//test2 = input_rational();
-		//test2 = DIV_QQ_Q(test1, test2);
-		//output_rational(test2);
-	
+		Drob test, test1;		
+		test = input_rational();
 
-		//vector <Drob> p_number1(input_polinom());
-		//vector <Drob> p_number2(input_polinom());	
-		//cout << endl;		
-		//p_number1 = DIV_PP_P(p_number1, p_number2);
-		//cout << endl;
-		//output_polinom(p_number1);
-		//
+		cout << endl;
+		test1 = input_rational();
+		test1 = DIV_QQ_Q(test, test1);
+		output_rational(test1);
+
+		/*vector <Drob> test1;
+		vector <Drob> test2;
+		test1 = input_polinom();
+		cout << endl;
+		test2 = input_polinom();
+		test1 = DIV_PP_P(test1, test2);
+		cout << endl;
+		output_polinom(test1);*/
+		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;
 		//a = input_matrix();
@@ -99,16 +103,35 @@ void output_natural(vector <int> test) // Вывод числа
 vector<int> input_integer() // Ввод числа 
 {
 	string s; cin >> s;
-	vector <int> test(s.length());
+	vector <int> test;
+	if (s.length() == 1 && s[0] == '0')
+	{
+		test.resize(2);
+		return test;
+	}
+	else 
+		test.resize(s.length());
+
+	if (s[0] == '-') 
+		test[0] = 1;
+	else 
+	{ 
+		test[0] = s[0] - '0';  
+		test.insert(test.begin(), 0); 
+	}
+
 	for (int i = 1; i < test.size(); i++)
 		test[i] = s[i] - '0';
-	if (s[0] == '-') test[0] = 1;
-	else { test[0] = s[0] - '0';  test.insert(test.begin(), 0); }
 	return test;
 }
 void output_integer(vector <int> test) // Вывод числа 
 {
-	if (test[0] == 1) cout << "-";
+	if (test.size() == 2 && test[0] == 0 && test[1] == 0)
+	{
+		cout << "0";
+		return;
+	}
+	else if (test[0] == 1) cout << "-";
 	for (int i = 1; i < test.size(); i++)
 		cout << test[i];
 }
@@ -119,7 +142,20 @@ Drob input_rational() // Ввод числа
 
 	cout << "Введите числитель:" << endl;
 	string s; cin >> s;
-	number.numerator.resize(s.length());
+
+	if (s.length() == 1 && s[0] == '0')
+	{
+		number.numerator.resize(2);
+		cout << "Введите знаменатель:" << endl;
+		cin >> s;
+		number.denominator.resize(s.length());
+		for (int i = 0; i < number.denominator.size(); i++)
+			number.denominator[i] = s[i] - '0';
+		return number;
+	}
+	else
+		number.numerator.resize(s.length());
+
 	for (int i = 1; i < number.numerator.size(); i++)
 		number.numerator[i] = s[i] - '0';
 	if (s[0] == '-') number.numerator[0] = 1;
@@ -135,9 +171,14 @@ Drob input_rational() // Ввод числа
 }
 void output_rational(Drob a)
 {
-	if (a.numerator[0] == 1) cout << "-";
-	for (int i = 1; i < a.numerator.size(); i++)
-		cout << a.numerator[i];
+	if (a.numerator.size() == 2 && a.numerator[0] == 0 && a.numerator[1] == 0)
+		cout << "0";
+	else if (a.numerator[0] == 1) cout << "-";
+	if (!(a.numerator.size() == 2 && a.numerator[0] == 0 && a.numerator[1] == 0))
+	{
+		for (int i = 1; i < a.numerator.size(); i++)
+			cout << a.numerator[i];
+	}
 	cout<<"\\";
 	for (int i = 0; i < a.denominator.size(); i++)
 		cout << a.denominator[i];
