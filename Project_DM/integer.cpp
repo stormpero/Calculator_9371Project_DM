@@ -128,25 +128,21 @@ vector<int> SUB_ZZ_Z(vector<int> vector_1, vector<int> vector_2) //Âû÷èòà�
 
 vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N)
 {
+	vector<int> result;
 	if ((POZ_Z_D(vector_2_N) == 0))// åñëè Äåëèòåëü = 0 îøèáêà
 		throw ("Divider 0!");
 	
 		if ((POZ_Z_D(vector_1_N) == 0))// åñëè Äåëèìîå = 0 âîçâðàùàåì 0 
 			return { 0 };
 
-		int f;//Îòâå÷àåò çà çíàê
-		if (((POZ_Z_D(vector_1_N) == 2) && (POZ_Z_D(vector_2_N) == 1)) || ((POZ_Z_D(vector_1_N) == 1) && (POZ_Z_D(vector_2_N) == 2)))
-			f = 1;
-		else f = 0;
+		if (((POZ_Z_D(vector_1_N) == 1) && (POZ_Z_D(vector_2_N) != 1)) || ((POZ_Z_D(vector_1_N) != 1) && (POZ_Z_D(vector_2_N) == 1)))
+			result = MUL_ZM_Z(TRANS_N_Z(ADD_1N_N(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N)))));
 
-		vector_1_N.erase(vector_1_N.begin());//×èñòèì çíàêè ÷èñåë
-		vector_2_N.erase(vector_2_N.begin());
-
-		vector<int> result;
-		result = DIV_NN_N(vector_1_N, vector_2_N);//Äåëèì êàê öåëûå
-		result.insert(result.begin(), f);//Âñòàâëÿåì çíàê
-		return (result);
-	
+		else if ((POZ_Z_D(vector_1_N) == 1) && (POZ_Z_D(vector_2_N) == 1))
+			result = TRANS_N_Z(ADD_1N_N(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N))));
+		else
+			result = TRANS_N_Z(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N)));
+		return result;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
