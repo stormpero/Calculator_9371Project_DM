@@ -150,7 +150,7 @@ vector<int> DIV_ZZ_Z(vector<int> vector_1_N, vector<int> vector_2_N)
 		else if (!first && second)
 			result = MUL_ZM_Z(TRANS_N_Z(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N))));
 		else
-			result = MUL_ZM_Z(TRANS_N_Z(ADD_1N_N(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N)))));
+			result = TRANS_N_Z(ADD_1N_N(DIV_NN_N(ABS_Z_N(vector_1_N), ABS_Z_N(vector_2_N))));
 		return result;
 }
 
