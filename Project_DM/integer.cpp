@@ -33,9 +33,6 @@ vector<int> MUL_ZZ_Z(vector<int> a, vector<int> b) // Åðìîëüåâ Ìàêñ�
 
 vector<int>  MOD_ZZ_Z(vector<int> a, vector<int> b)
 {
-	if (COM_NN_D(a, b) == 1)
-		swap(a, b);
-
 	return SUB_ZZ_Z(a, MUL_ZZ_Z(b, DIV_ZZ_Z(a, b)));   // Âîçâðàùàåìîå çíà÷åíèå
 }
 
