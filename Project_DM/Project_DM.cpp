@@ -54,8 +54,9 @@ int main()
 		vector <Drob> test1;
 		vector <Drob> test2;
 		test1 = input_polinom();
+		test2 = input_polinom();
 		cout << endl;
-		test1 = NMR_P_P(test1);
+		test1 = DIV_PP_P(test1, test2);
 		cout << endl;
 		output_polinom(test1);
 		

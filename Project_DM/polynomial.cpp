@@ -314,14 +314,13 @@ vector<Drob> DIV_PP_P(vector<Drob> a, vector<Drob> b)
 	while (DEG_P_N(a) >= DEG_P_N(b) && !(a.size() == 1 && POZ_Z_D(a[0].numerator) == 0))
 	{
 		number = DIV_QQ_Q(a[a.size() - 1], b[b.size() - 1]);
-		div_a_b[div_a_b.size() - 1 - i] = number;
+		div_a_b[(a.size() - 1) - (b.size() - 1)] = number;
 		vector <int> vect = { 0 };
 
-		for (int j = 0; j < div_a_b.size() - 1 - i; j++)
+		for (int j = 0; j < (a.size() - 1) - (b.size() - 1); j++)
 			vect = ADD_1N_N(vect);
 
 		a = SUB_PP_P(a, MUL_PQ_P(MUL_Pxk_P(b, vect), number));
-		i++;
 	}
 	return div_a_b;
 };
