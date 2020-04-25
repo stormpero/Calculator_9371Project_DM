@@ -292,10 +292,7 @@ vector<Drob> NMR_P_P(vector<Drob> polynomial)
 		throw ((string)" Empty polynomial \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
 	vector<Drob> pr = DER_P_P(polynomial);
 	vector <Drob> nod = GCF_PP_P(polynomial, pr);
-	if ((nod[0].numerator[0] == 1) && (nod[0].denominator[0] == 1)) 
-		polynomial = DIV_PP_P(polynomial, pr);
-	
-	return polynomial;
+	return DIV_PP_P(polynomial, nod);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
