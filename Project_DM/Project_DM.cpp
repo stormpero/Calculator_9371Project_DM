@@ -51,10 +51,17 @@ int main()
 		test1 = DIV_QQ_Q(test, test1);
 		output_rational(test1);*/
 
-		vector <Drob> test1;
-		vector <Drob> test2;
-		test1 = input_polinom();
-		test2 = input_polinom();
+		vector <Drob> test1(101);
+		vector <Drob> test2(2);
+		Drob null = { {0, 0}, {1} };
+		for (int i = 0; i < 101; i++)
+			test1[i] = null;
+		test1[100] = { {0, 1}, {1} };
+		test1[0] = { {0, 2}, {1} };
+		test2[1] = { {0, 1, 0, 0}, {1} };
+		test2[0] = { {0, 2}, {1} };
+		/*test1 = input_polinom();
+		test2 = input_polinom();*/
 		cout << endl;
 		test1 = DIV_PP_P(test1, test2);
 		cout << endl;

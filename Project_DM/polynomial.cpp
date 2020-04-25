@@ -59,14 +59,21 @@ void FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
 
 	// и НОДу числитель первого коэффициента (в виде натурального числа)
 	// Приравниваем НОКу знаменатель первого коэффициента многочлена
-	GCD_num = ABS_Z_N(poly[0].numerator);
-	LCM_de = poly[0].denominator;
+	int i = 0;
+	while (POZ_Z_D(poly[i].numerator) == 0)
+		i++;
+	GCD_num = ABS_Z_N(poly[i].numerator);
+	LCM_de = poly[i].denominator;
 
 	// И последовательно вычисляем его НОД и НОК с каждым следующим коэфициентом
-	for (int i(1); i < poly.size(); ++i)
+	for (int j(i + 1); j < poly.size();)
 	{
-		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[i].numerator));
-		LCM_de = LCM_NN_N(LCM_de, poly[i].denominator);
+		int k = j;
+		while (POZ_Z_D(poly[i].numerator) == 0)
+			k++;
+		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[k].numerator));
+		LCM_de = LCM_NN_N(LCM_de, poly[k].denominator);
+		j = k + 1;
 	}
 
 	// Переводим НОД обратно в целое число
