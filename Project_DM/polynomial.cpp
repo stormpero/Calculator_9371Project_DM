@@ -52,7 +52,7 @@ vector <Drob> MUL_Pxk_P(vector<Drob> poly, vector<int> k)
 	return result;
 }
 
-void FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
+vector<Drob> FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
 {
 	if (poly.empty())
 		throw ((string)" Empty polynomial \nIn File: " + __FILE__ + "\nIn line: " + to_string(__LINE__));
@@ -66,18 +66,17 @@ void FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
 	LCM_de = poly[i].denominator;
 
 	// И последовательно вычисляем его НОД и НОК с каждым следующим коэфициентом
-	for (int j(i); j < poly.size();)
+	for (int i(1); i < poly.size(); ++i)
 	{
-		int k = j + 1;
-		while (POZ_Z_D(poly[k].numerator) == 0)
-			k++;
-		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[k].numerator));
-		LCM_de = LCM_NN_N(LCM_de, poly[k].denominator);
-		j = k;
+		if ((POZ_Z_D(poly[i].numerator) == 0))
+			continue;
+		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[i].numerator));
+		LCM_de = LCM_NN_N(LCM_de, poly[i].denominator);
 	}
 
-	// Переводим НОД обратно в целое число
-	GCD_num = TRANS_N_Z(GCD_num);
+	for (int i = 0; i < poly.size(); i++)
+		poly[i].numerator = MUL_ZZ_Z(DIV_ZZ_Z(poly[i].numerator, TRANS_N_Z(GCD_num)), DIV_NN_N(LCM_de, poly[i].denominator));
+	return poly;
 }
 
 vector<Drob> SUB_PP_P(vector<Drob> first, vector<Drob> second)
