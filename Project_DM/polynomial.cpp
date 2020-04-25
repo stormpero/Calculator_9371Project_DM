@@ -75,7 +75,10 @@ vector<Drob> FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_nu
 	}
 
 	for (int i = 0; i < poly.size(); i++)
+	{
 		poly[i].numerator = MUL_ZZ_Z(DIV_ZZ_Z(poly[i].numerator, TRANS_N_Z(GCD_num)), DIV_NN_N(LCM_de, poly[i].denominator));
+		poly[i].denominator = { 1 };
+	}
 	return poly;
 }
 
