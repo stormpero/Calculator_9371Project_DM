@@ -19,14 +19,7 @@ void output_polinom(vector<Drob> polin); //Вывод многочлена
 vector<vector<vector<int>>> input_matrix(); // Ввод матрицы
 void output_matrix(vector<vector<vector<int>>> a); //Вывод матрицы
 
-exc mist()
-{
-	exc te;
-	te.file = __FILE__,
-	te.line_num = __LINE__,
-	te.name_exc = "Empty input";
-	return te;
-}
+
 int main()
 {
 	// ADD_QQ_Q ЕСЛИ ЧИСЛИЕТЛЬ 0
@@ -50,22 +43,29 @@ int main()
 		//vector<int> a3(MUL_NN_N(a1, a2));
 		//output_natural(a3);
 		//
-		Drob test, test1;		
+		/*Drob test, test1;		
 		test = input_rational();
 
 		cout << endl;
 		test1 = input_rational();
 		test1 = DIV_QQ_Q(test, test1);
-		output_rational(test1);
+		output_rational(test1);*/
 
-		/*vector <Drob> test1;
-		vector <Drob> test2;
-		test1 = input_polinom();
+		vector <Drob> test1(101);
+		vector <Drob> test2(2);
+		Drob null = { {0, 0}, {1} };
+		for (int i = 0; i < 101; i++)
+			test1[i] = null;
+		test1[100] = { {0, 1}, {1} };
+		test1[0] = { {0, 2}, {1} };
+		test2[1] = { {0, 1, 0, 0}, {1} };
+		test2[0] = { {0, 2}, {1} };
+		/*test1 = input_polinom();
+		test2 = input_polinom();*/
 		cout << endl;
-		test2 = input_polinom();
 		test1 = DIV_PP_P(test1, test2);
 		cout << endl;
-		output_polinom(test1);*/
+		output_polinom(test1);
 		
 		//vector <int> det;
 		//vector<vector<vector<int>>> a,b;
