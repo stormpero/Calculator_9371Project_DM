@@ -66,14 +66,14 @@ void FAC_P_Q(vector<Drob> poly, vector<int>& LCM_de, vector<int>& GCD_num)
 	LCM_de = poly[i].denominator;
 
 	// И последовательно вычисляем его НОД и НОК с каждым следующим коэфициентом
-	for (int j(i + 1); j < poly.size();)
+	for (int j(i); j < poly.size();)
 	{
-		int k = j;
-		while (POZ_Z_D(poly[i].numerator) == 0)
+		int k = j + 1;
+		while (POZ_Z_D(poly[k].numerator) == 0)
 			k++;
 		GCD_num = GCF_NN_N(GCD_num, ABS_Z_N(poly[k].numerator));
 		LCM_de = LCM_NN_N(LCM_de, poly[k].denominator);
-		j = k + 1;
+		j = k;
 	}
 
 	// Переводим НОД обратно в целое число
